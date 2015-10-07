@@ -1,0 +1,7 @@
+-de 2 a 4 jogadores
+-5 peças transparentes colocadas aleatoriamente
+-peças transparentes contam como qualquer outra
+-quando se faz um ponto, a peça transparente não pode ser colocada ao lado de outras para formar um padrão
+
+-contar os pontos só no final
+-valorizar meter em cima de uma peça a ter que pôr numa em branco

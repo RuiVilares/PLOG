@@ -1,0 +1,20 @@
+///////intro
+-derrota, empate, vitória
+-2 jogadores
+-humano/humano, humano/computador, computador/computador
+-computador >= 2 níveis de dificuldade
+-interface em modo de texto
+
+///////avaliação intercalar
+-estado do jogo:
+	-lista de listas
+	-diferentes átomos para as peças
+	-exemplificação de estados iniciais, intermédios e finais (com imagens)
+
+-visualização:
+	-predicado de visualização já parcialmente implementado
+	-receber o tabuleiro e imprimir
+	-imagem do output
+
+-movimentos:
+	-definir cabeçalhos para ser implementados
