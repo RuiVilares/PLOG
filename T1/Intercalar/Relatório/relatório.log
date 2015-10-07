@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.6)  6 OCT 2015 13:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.6)  7 OCT 2015 01:43
 entering extended mode
 **relatório.tex
 (relatório.tex
@@ -339,42 +339,51 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/feup-logo.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 88.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 88.
+
 <./images/modx_box.jpg, id=10, 451.6875pt x 508.90125pt>
 File: ./images/modx_box.jpg Graphic file (type jpg)
 
 <use ./images/modx_box.jpg>
-Package pdftex.def Info: ./images/modx_box.jpg used on input line 88.
-(pdftex.def)             Requested size: 135.5073pt x 152.67155pt.
+Package pdftex.def Info: ./images/modx_box.jpg used on input line 104.
+(pdftex.def)             Requested size: 180.67178pt x 203.55688pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 97.
+(Font)              <7> on input line 113.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 97.
-
-<./images/modx_score.jpg, id=11, 400.49625pt x 282.30469pt>
+(Font)              <5> on input line 113.
+ [2 <./images/modx_box.jpg>]
+<./images/modx_score.jpg, id=20, 400.49625pt x 282.30469pt>
 File: ./images/modx_score.jpg Graphic file (type jpg)
 
 <use ./images/modx_score.jpg>
-Package pdftex.def Info: ./images/modx_score.jpg used on input line 108.
+Package pdftex.def Info: ./images/modx_score.jpg used on input line 128.
 (pdftex.def)             Requested size: 160.19566pt x 112.91986pt.
- [2 <./images/modx_box.jpg> <./images/modx_score.jpg>] [3] (relatório.aux) ) 
+ [3 <./images/modx_score.jpg>] (relatório.aux) ) 
 Here is how much of TeX's memory you used:
- 1827 strings out of 493698
- 23150 string characters out of 3144418
+ 1846 strings out of 493698
+ 23459 string characters out of 3144418
  84787 words of memory out of 3000000
- 5155 multiletter control sequences out of 15000+200000
- 8193 words of font info for 29 fonts, out of 3000000 for 9000
+ 5170 multiletter control sequences out of 15000+200000
+ 8501 words of font info for 30 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,8n,23p,255b,253s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr8.pfb>
-Output written on relatório.pdf (3 pages, 267786 bytes).
+ 27i,8n,23p,255b,251s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on relatório.pdf (3 pages, 289846 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
+ 49 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
