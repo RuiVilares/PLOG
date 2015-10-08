@@ -116,7 +116,7 @@ printBoard(Board) :-
 	printBoardAux(Board,0),
 	printHorizontalLine(65).
 
-%chamada auxiliar de 'printBoard' e que desenha (Board.length mod 8) vezes
+%chamada auxiliar de 'printBoard' e que desenha (Board.length div 8) vezes
 printBoardAux([],_).
 printBoardAux(Board, CurrentNumberVertical) :-
 	length(Line, 8),
