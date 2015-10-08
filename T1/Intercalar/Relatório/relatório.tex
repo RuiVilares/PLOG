@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}
 \usepackage{graphicx}
+\usepackage{subfig}
 \usepackage{verbatim}
 
 
@@ -78,83 +79,107 @@ Rui Miguel Teixeira Vilares - 201207046 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{O Jogo MOD X}
 
+\subsection{Contextualização}
 O MOD X é um jogo de tabuleiro, nascido em 2015, recomendado para jogadores com mais de 15 anos de idade.
+É um jogo de estratégia, divertido e fácil de aprender.
 Cada partida reúne 2 a 4 jogadores e tem a duração prevista de 20 a 30 minutos. 
 
-\vspace{0.5cm}
-
-\textbf{Componentes do jogo:}
+\subsection{Componentes do jogo}
 \begin{itemize}
 	\item 1 Tabuleiro 8x8;
 	\item 56 peças de jogo em formato X (14 em cada cor);
 	\item 72 marcadores de pontuação (18 em cada cor);
-	\item 5 peças Joker em formato X (brancas);
+	\item 5 peças \textit{Joker} em formato X (brancas);
 \end{itemize}
-
-\vspace{0.5cm}
-
-\textbf{Objetivo do jogo:}
-
-Conseguir formar o maior número de padrões possível, de forma a conseguir a melhor pontuação. O vencedor é o jogador com mais pontos.  
-
-\vspace{0.5cm}
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[scale=0.4]{./images/modx_box.jpg}
+		\includegraphics[scale=0.3]{./images/modx_box.jpg}
 		\caption{Caixa do MOD X}
 		\label{fig:1}
 	\end{center}
 \end{figure}
 
-\vspace{0.5cm}
+\subsection{Objetivo do jogo}
 
-O MOD X é um jogo de tabuleiro de estratégia é divertido e fácil de aprender. 
-O objetivo deste jogo é criar padrões com peças coloridas (vermelho, preto, amarelo e laranja) \footnote{https://boardgamegeek.com/boardgame/131387/mod-x}.
+O objetivo deste jogo é criar padrões com peças coloridas (vermelho, preto, amarelo e laranja).
+Pretende-se assim, formar o maior número de padrões possível, de forma a conseguir a melhor pontuação.
+O vencedor é o jogador com mais pontos.
+Evidentemente, é também suposto bloquear os adversários de modo que não consigam construir esses padrões\footnote{https://boardgamegeek.com/boardgame/131387/mod-x}.  
 
-Cada jogador inicia o jogo com 14 peças e 18 marcadores.
-Inicialmente, define-se a ordem dos jogadores e escolha das peças por parte dos jogadores.  
-No seu turno, um jogador coloca uma peça no tabuleiro, com o objetivo de criar padrões específicos, que se traduzem em pontos.
-Os padrões utilizados para ganhar pontos são o ''X'', o ''+'' e o ''cinco em linha''.
+\subsection{Regras}
 
-Existem umas peças de cor branca, dispostas inicialmente de forma aleatória, chamadas Jokers. O jogador pode usar essas peças para formar padrões, como se tratassem das suas próprias peças.
+\begin{itemize}
+	\item Define-se a ordem dos jogadores, cada um escolhe a cor das suas peças e define-se o limite de pontos\footnote{https://www.cryptozoic.com/games/mod-x};
+	\item Cada jogador inicia o jogo com 14 peças e 18 marcadores;
+	\item Os \textit{Jokers} são dispostos inicialmente de forma aleatória no tabuleiro; 
+	\item No seu turno, cada jogador coloca uma peça no tabuleiro, em qualquer posição livre;
+	\item Os padrões utilizados para ganhar pontos são o ''X'', o ''+'' e o ''cinco em linha'';
+	
+	\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[scale=0.4]{./images/modx_score.jpg}
+			\caption{Padrões usados}
+			\label{fig:2}
+		\end{center}
+	\end{figure}
+	
+	\item O jogador pode usar os \textit{Jokers} para formar padrões, como se das suas próprias peças se tratassem;
+	\item Quando um padrão é formado, retiram-se as peças de jogo e introduzem-se marcadores nessas posições. As peças de jogo podem agora voltar a ser utilizadas e as casas com marcadores também;
+	\item Cada marcador colocado corresponde a um ponto.
+	\item Caso tenha sido usado um \textit{Joker} para formar um padrão, nessa posição não é introduzido um marcador. O \textit{Joker} é agora colocado numa posição ao critério do jogador. Atenção, o \textit{Joker} não pode ser usado para formar um novo padrão de imediato; 
+	
+	\begin{figure}[!tbp]
+		\centering
+		\subfloat[Peças]{\includegraphics[width=0.3\textwidth]{./images/padroesPretos.png}\label{fig:f1}}
+		\hfill
+		\subfloat[Marcadores]{\includegraphics[width=0.3\textwidth]{./images/padroesPretosMarcadores.png}\label{fig:f2}}
+		\caption{Substituição das peças por marcadores}
+	\end{figure}
+	
+	\item O primeiro jogador a atingir o número de pontos, determinado inicialmente, é o vencedor.
+	\item O jogo pode também acabar quando um jogador já não dispõe de peças ou marcadores. Nesse caso, ganha o jogador com mais pontos até ao momento. 
+	
 
-É suposto bloquear os adversários de modo que não consigam construir esses padrões\footnote{https://www.cryptozoic.com/games/mod-x}.
+	
+\end{itemize}
+%%Cada jogador inicia o jogo com 14 peças e 18 marcadores.
+%%Inicialmente, define-se a ordem dos jogadores e escolha das peças por parte dos jogadores.  
+%%No seu turno, um jogador coloca uma peça no tabuleiro, com o objetivo de criar padrões específicos, que se traduzem em pontos.
+%%Os padrões utilizados para ganhar pontos são o ''X'', o ''+'' e o ''cinco em linha''.
 
-\vspace{0.5cm}
+%%Existem umas peças de cor branca, dispostas inicialmente de forma aleatória, chamadas Jokers. O jogador pode usar essas peças para formar padrões, como se tratassem das suas próprias peças.
 
-\begin{figure}[h!]
-	\begin{center}
-		\includegraphics[scale=0.4]{./images/modx_score.jpg}
-		\caption{Padrões usados}
-		\label{fig:2}
-	\end{center}
-\end{figure}
+%%É suposto bloquear os adversários de modo que não consigam construir esses padrões\footnote{https://www.cryptozoic.com/games/mod-x}.
 
-\vspace{0.5cm}
-
-No final, o primeiro jogador a atingir um certo número de pontos, determinado inicialmente pelo número de jogadores, é o vencedor.
-O jogo pode também terminar quando um jogador terminar com as suas peças ou marcadores.
-Nesse caso, o jogo termina imediatamente e ganha o jogador com mais pontos até ao momento.
+%%No final, o primeiro jogador a atingir um certo número de pontos, determinado inicialmente pelo número de jogadores, é o vencedor.
+%%O jogo pode também terminar quando um jogador terminar com as suas peças ou marcadores.
+%%Nesse caso, o jogo termina imediatamente e ganha o jogador com mais pontos até ao momento.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Representação do Estado do Jogo}
 
-Descrever a forma de representação do estado do tabuleiro (tipicamente uma lista de listas), com exemplificação em Prolog de posições iniciais do jogo, posições intermédias e finais, acompanhadas de imagens ilustrativas.
+\subsection{Representação do estado do tabuleiro}
+
+
+
+\subsection{Posições iniciais do jogo}
+\subsection{Posições intermédias do jogo}
+\subsection{posições finais do jogo}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Visualização do Tabuleiro}
 
-Descrever a forma de visualização do tabuleiro em modo de texto e o(s) predicado(s) Prolog construídos para o efeito.
-Deve ser incluída pelo menos uma imagem correspondente ao output produzido pelo predicado de visualização.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimentos}
 
-Elencar os movimentos (tipos de jogadas) possíveis e definir os cabeçalhos dos predicados que serão utilizados (ainda não precisam de estar implementados).
+
 
 
 \end{document}
