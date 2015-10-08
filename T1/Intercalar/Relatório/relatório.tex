@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{verbatim}
+\usepackage{listings} 
 
 
 \begin{document}
@@ -129,7 +130,7 @@ Evidentemente, é também suposto bloquear os adversários de modo que não cons
 	\item Cada marcador colocado corresponde a um ponto.
 	\item Caso tenha sido usado um \textit{Joker} para formar um padrão, nessa posição não é introduzido um marcador. O \textit{Joker} é agora colocado numa posição ao critério do jogador. Atenção, o \textit{Joker} não pode ser usado para formar um novo padrão de imediato; 
 	
-	\begin{figure}[!tbp]
+	\begin{figure}[!h]
 		\centering
 		\subfloat[Peças]{\includegraphics[width=0.3\textwidth]{./images/padroesPretos.png}\label{fig:f1}}
 		\hfill
@@ -160,15 +161,37 @@ Evidentemente, é também suposto bloquear os adversários de modo que não cons
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Representação do Estado do Jogo}
 
-\subsection{Representação do estado do tabuleiro}
+\subsection{Representação do estado inicial do tabuleiro}
+
+%%printBoard(
+\begin{small}
+\begin{lstlisting}
+[[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],
+[-1,-1],[0,-1],[1,-1],[2,-1],[2,-1],[1,-1],[0,-1],[-1,-1],
+[-1,11],[0,11],[1,11],[2,11],[2,11],[1,11],[0,11],[-1,11],
+[-1,22],[0,22],[1,22],[2,22],[2,22],[1,22],[0,22],[-1,22],
+[-1,-1],[0,-1],[1,-1],[2,-1],[2,-1],[1,-1],[0,-1],[-1,-1],
+[-1,11],[0,11],[1,11],[2,11],[2,11],[1,11],[0,11],[-1,11],
+[-1,22],[0,22],[1,22],[2,22],[2,22],[1,22],[0,22],[-1,22],
+[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1]]
+\end{lstlisting}
+\end{small}
+%%).
+
+INSERIR IMAGEM
 
 
+\subsection{Representação de um estado intermédio do tabuleiro}
 
-\subsection{Posições iniciais do jogo}
-\subsection{Posições intermédias do jogo}
-\subsection{posições finais do jogo}
+INSERIR CODIGO
 
+INSERIR IMAGEM
 
+\subsection{Representação de um estado final do tabuleiro}
+
+INSERIR CODIGO
+
+INSERIR IMAGEM
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Visualização do Tabuleiro}
@@ -179,7 +202,40 @@ Evidentemente, é também suposto bloquear os adversários de modo que não cons
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Movimentos}
 
+\textbf{Falha se o \textit{Joker} é posto numa posição errada}\newline
+\begin{small}
+placeJoker(Board, Player, TileNumber).
+\end{small}\newline
 
+\textbf{Devolve as jogadas possíveis em ListOfMoves}\newline
+\begin{small}
+validMoves(Board, Player, ListOfMoves).
+\end{small}\newline
+
+\textbf{Falha se não poder ser feito o movimento}\newline
+\begin{small}
+move(Board, Player, TileNumber, NewBoard).
+\end{small}\newline
+
+\textbf{Avalia a jogada e devolve o seu valor em Value}\newline
+\begin{small}
+value(Board, Player, TileNumber, Value).
+\end{small}\newline
+
+\textbf{Caso o jogo tenha acabado devolve o vencedor em Winner}\newline
+\begin{small}
+gameOver(Board, Winner).
+\end{small}\newline
+
+\textbf{Jogada do computador em que consoante diferentes níveis de dificuldade (Level) devolve jogadas diferentes}\newline
+\begin{small}
+choose\_Move(Board, Level, Move).
+\end{small}\newline
+
+\textbf{Põe as bases e tira as cruzes do jogador Player}\newline
+\begin{small}
+putTiles(Board, Player, NewBoard).
+\end{small}\newline
 
 
 \end{document}

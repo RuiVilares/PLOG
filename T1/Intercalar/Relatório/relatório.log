@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.6)  8 OCT 2015 11:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.6)  8 OCT 2015 12:49
 entering extended mode
 **relatório.tex
 (relatório.tex
@@ -330,83 +330,110 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks17
 \verbatim@line=\toks18
 \verbatim@in@stream=\read1
-) (relatório.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count97
+\lst@gtempboxa=\box26
+\lst@token=\toks19
+\lst@length=\count98
+\lst@currlwidth=\dimen114
+\lst@column=\count99
+\lst@pos=\count100
+\lst@lostspace=\dimen115
+\lst@width=\dimen116
+\lst@newlines=\count101
+\lst@lineno=\count102
+\lst@maxwidth=\dimen117
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count103
+\lst@skipnumbers=\count104
+\lst@framebox=\box27
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(relatório.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+ ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count97
-\scratchdimen=\dimen114
-\scratchbox=\box26
-\nofMPsegments=\count98
-\nofMParguments=\count99
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count100
-\MPscratchDim=\dimen115
-\MPnumerator=\count101
-\makeMPintoPDFobject=\count102
-\everyMPtoPDFconversion=\toks20
+\scratchcounter=\count105
+\scratchdimen=\dimen118
+\scratchbox=\box28
+\nofMPsegments=\count106
+\nofMParguments=\count107
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count108
+\MPscratchDim=\dimen119
+\MPnumerator=\count109
+\makeMPintoPDFobject=\count110
+\everyMPtoPDFconversion=\toks21
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count111
  <./images/feup-logo.png, id=1, 2252.415pt x 742.775pt>
 File: ./images/feup-logo.png Graphic file (type png)
 
 <use ./images/feup-logo.png>
-Package pdftex.def Info: ./images/feup-logo.png used on input line 34.
+Package pdftex.def Info: ./images/feup-logo.png used on input line 35.
 (pdftex.def)             Requested size: 225.2547pt x 74.28185pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 34.
+(Font)              <12> on input line 35.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 34.
+(Font)              <8> on input line 35.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 34.
+(Font)              <6> on input line 35.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/feup-logo.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 89.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 90.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
 
 <./images/modx_box.jpg, id=10, 451.6875pt x 508.90125pt>
 File: ./images/modx_box.jpg Graphic file (type jpg)
 
 <use ./images/modx_box.jpg>
-Package pdftex.def Info: ./images/modx_box.jpg used on input line 97.
+Package pdftex.def Info: ./images/modx_box.jpg used on input line 98.
 (pdftex.def)             Requested size: 135.5073pt x 152.67155pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 108.
+(Font)              <7> on input line 109.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 108.
+(Font)              <5> on input line 109.
  [2 <./images/modx_box.jpg>]
 <./images/modx_score.jpg, id=20, 400.49625pt x 282.30469pt>
 File: ./images/modx_score.jpg Graphic file (type jpg)
 
 <use ./images/modx_score.jpg>
-Package pdftex.def Info: ./images/modx_score.jpg used on input line 121.
+Package pdftex.def Info: ./images/modx_score.jpg used on input line 122.
 (pdftex.def)             Requested size: 160.19566pt x 112.91986pt.
 
 <./images/padroesPretos.png, id=21, 475.02469pt x 215.30438pt>
 File: ./images/padroesPretos.png Graphic file (type png)
 
 <use ./images/padroesPretos.png>
-Package pdftex.def Info: ./images/padroesPretos.png used on input line 134.
+Package pdftex.def Info: ./images/padroesPretos.png used on input line 135.
 (pdftex.def)             Requested size: 136.5746pt x 61.90117pt.
 
 <./images/padroesPretosMarcadores.png, id=22, 711.4078pt x 399.74344pt>
@@ -414,30 +441,80 @@ File: ./images/padroesPretosMarcadores.png Graphic file (type png)
 
 <use ./images/padroesPretosMarcadores.png>
 Package pdftex.def Info: ./images/padroesPretosMarcadores.png used on input lin
-e 136.
+e 137.
 (pdftex.def)             Requested size: 136.5746pt x 76.73888pt.
  [3 <./images/modx_score.jpg> <./images/padroesPretos.png> <./images/padroesPre
-tosMarcadores.png>] [4]
-(relatório.aux) ) 
+tosMarcadores.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 169.
+
+Overfull \hbox (15.75119pt too wide) in paragraph at lines 169--170
+[][][] 
+ []
+
+
+Overfull \hbox (10.20117pt too wide) in paragraph at lines 176--177
+[][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--214
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--219
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--224
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--229
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--234
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--239
+
+ []
+
+[4] (relatório.aux) ) 
 Here is how much of TeX's memory you used:
- 3064 strings out of 493698
- 45363 string characters out of 3144418
- 113125 words of memory out of 3000000
- 6376 multiletter control sequences out of 15000+200000
- 8539 words of font info for 30 fonts, out of 3000000 for 9000
+ 4669 strings out of 493698
+ 66341 string characters out of 3144418
+ 134055 words of memory out of 3000000
+ 7964 multiletter control sequences out of 15000+200000
+ 10118 words of font info for 35 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 44i,9n,47p,316b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb>
-Output written on relatório.pdf (4 pages, 1264326 bytes).
+ 44i,9n,47p,316b,1059s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on relatório.pdf (4 pages, 1315561 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
