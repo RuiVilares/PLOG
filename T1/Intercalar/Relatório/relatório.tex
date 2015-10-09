@@ -9,7 +9,7 @@
 \usepackage{subfig}
 \usepackage{verbatim}
 \usepackage{listings} 
-
+\usepackage{multicol}
 
 \begin{document}
 
@@ -25,7 +25,7 @@
 \Large{Programação em Lógica}\linebreak
 }
 
-\author{\textbf{Grupo ModX3:}\\
+\author{\textbf{Grupo Mod X\_3:}\\
 António Manuel Vieira Ramadas - 201303568 \\
 Rui Miguel Teixeira Vilares - 201207046 \\
 \linebreak\linebreak \\
@@ -78,7 +78,7 @@ Rui Miguel Teixeira Vilares - 201207046 \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{O Jogo MOD X}
+\section{O Jogo MOD X\newline}
 
 \subsection{Contextualização}
 O MOD X é um jogo de tabuleiro, nascido em 2015, recomendado para jogadores com mais de 15 anos de idade.
@@ -127,19 +127,19 @@ Evidentemente, é também suposto bloquear os adversários de modo que não cons
 	
 	\item O jogador pode usar os \textit{Jokers} para formar padrões, como se das suas próprias peças se tratassem;
 	\item Quando um padrão é formado, retiram-se as peças de jogo e introduzem-se marcadores nessas posições. As peças de jogo podem agora voltar a ser utilizadas e as casas com marcadores também;
-	\item Cada marcador colocado corresponde a um ponto.
+	\item Cada marcador colocado corresponde a um ponto;
 	\item Caso tenha sido usado um \textit{Joker} para formar um padrão, nessa posição não é introduzido um marcador. O \textit{Joker} é agora colocado numa posição ao critério do jogador. Atenção, o \textit{Joker} não pode ser usado para formar um novo padrão de imediato; 
 	
 	\begin{figure}[!h]
 		\centering
-		\subfloat[Peças]{\includegraphics[width=0.3\textwidth]{./images/padroesPretos.png}\label{fig:f1}}
+		\subfloat[Peças]{\includegraphics[width=0.3\textwidth]{./images/padroesPretos.png}\label{fig:3}}
 		\hfill
-		\subfloat[Marcadores]{\includegraphics[width=0.3\textwidth]{./images/padroesPretosMarcadores.png}\label{fig:f2}}
+		\subfloat[Marcadores]{\includegraphics[width=0.3\textwidth]{./images/padroesPretosMarcadores.png}\label{fig:4}}
 		\caption{Substituição das peças por marcadores}
 	\end{figure}
 	
-	\item O primeiro jogador a atingir o número de pontos, determinado inicialmente, é o vencedor.
-	\item O jogo pode também acabar quando um jogador já não dispõe de peças ou marcadores. Nesse caso, ganha o jogador com mais pontos até ao momento. 
+	\item O primeiro jogador a atingir o número de pontos, determinado inicialmente, é o vencedor;
+	\item O jogo pode também acabar quando um jogador já não dispõe de peças ou marcadores. Nesse caso, ganha o jogador com mais pontos até ao momento\footnote{https://youtu.be/pto-7O618rI};
 	
 
 	
@@ -159,7 +159,47 @@ Evidentemente, é também suposto bloquear os adversários de modo que não cons
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Representação do Estado do Jogo}
+
+
+\begin{multicols}{2}
+	[\section{Representação do Estado do Jogo\newline}]
+Na representação exterior, ou seja, quando o tabuleiro é visualizado pelo utilizador, usamos as seguintes propriedades:
+\begin{itemize}
+	\item Peças de jogo:
+		\begin{itemize}
+			\item espaço em branco = livre (vazio)
+			\item 0 = \textit{Joker} (transparente)
+			\item 1 = jogador 1
+			\item 2	= jogador 2
+		\end{itemize}
+	\item Marcadores:
+		\begin{itemize}
+			\item espaço em branco = vazio
+			\item * = marcador do jogador 1
+			\item : = marcador do jogador 2
+		\end{itemize}
+\end{itemize}
+
+\columnbreak
+
+Na representação interna, ou seja, nos dados armazenados pelo computador, usamos a seguinte sintaxe:
+\begin{itemize}
+	\item Peças de jogo:
+	\begin{itemize}
+		\item -1 = livre (vazio)
+		\item 0 = \textit{joker} (transparente)
+		\item 1 = jogador 1
+		\item 2 = jogador 2
+	\end{itemize}
+	\item Marcadores:
+	\begin{itemize}
+		\item -1 = vazio
+		\item 11 = base do jogador 1
+		\item 22 = base do jogador 2
+	\end{itemize}
+\end{itemize}
+
+\end{multicols}
 
 \subsection{Representação do estado inicial do tabuleiro}
 
@@ -167,75 +207,160 @@ Evidentemente, é também suposto bloquear os adversários de modo que não cons
 \begin{small}
 \begin{lstlisting}
 [[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],
-[-1,-1],[0,-1],[1,-1],[2,-1],[2,-1],[1,-1],[0,-1],[-1,-1],
-[-1,11],[0,11],[1,11],[2,11],[2,11],[1,11],[0,11],[-1,11],
-[-1,22],[0,22],[1,22],[2,22],[2,22],[1,22],[0,22],[-1,22],
-[-1,-1],[0,-1],[1,-1],[2,-1],[2,-1],[1,-1],[0,-1],[-1,-1],
-[-1,11],[0,11],[1,11],[2,11],[2,11],[1,11],[0,11],[-1,11],
-[-1,22],[0,22],[1,22],[2,22],[2,22],[1,22],[0,22],[-1,22],
+[-1,-1],[0,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],
+[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],
+[0,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[0,-1],[-1,-1],[-1,-1],
+[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[0,-1],[-1,-1],
+[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],
+[-1,-1],[-1,-1],[0,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],
 [-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1]]
 \end{lstlisting}
 \end{small}
 %%).
 
-INSERIR IMAGEM
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.4]{./images/inicial.png}
+		\caption{Estado inicial}
+		\label{fig:5}
+	\end{center}
+\end{figure}
 
+\vspace{15 mm}
 
 \subsection{Representação de um estado intermédio do tabuleiro}
 
-INSERIR CODIGO
+\begin{small}
+\begin{lstlisting}
+[[-1,-1],[2,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,11],[-1,-1],
+[-1,-1],[0,-1],[-1,-1],[-1,-1],[-1,-1],[-1,11],[-1,11],[-1,11],
+[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,11],[-1,-1],
+[-1,-1],[-1,22],[-1,22],[-1,22],[-1,22],[0,-1],[-1,-1],[1,-1],
+[0,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[0,-1],[-1,-1],
+[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[1,-1],[-1,-1],[1,-1],
+[2,-1],[2,-1],[0,-1],[2,-1],[1,-1],[-1,-1],[-1,-1],[-1,-1],
+[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[0,-1]]
+\end{lstlisting}
+\end{small}
 
-INSERIR IMAGEM
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.4]{./images/intermedio.png}
+		\caption{Estado intermédio}
+		\label{fig:6}
+	\end{center}
+\end{figure}
 
 \subsection{Representação de um estado final do tabuleiro}
 
-INSERIR CODIGO
+\begin{small}
+\begin{lstlisting}
+[[0,-1],[2,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,11],[0,-1],
+[-1,-1],[0,-1],[-1,-1],[-1,-1],[2,-1],[2,11],[-1,11],[-1,11],
+[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,11],[-1,-1],
+[-1,-1],[-1,22],[1,22],[-1,22],[-1,22],[-1,-1],[-1,-1],[-1,11],
+[0,-1],[-1,-1],[1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],
+[-1,-1],[-1,-1],[-1,22],[0,-1],[-1,-1],[-1,11],[-1,-1],[-1,11],
+[2,-1],[-1,22],[-1,-1],[-1,22],[1,-1],[-1,-1],[-1,-1],[-1,-1],
+[-1,-1],[-1,-1],[-1,22],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[0,-1]]
+\end{lstlisting}
+\end{small}
 
-INSERIR IMAGEM
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.4]{./images/final.png}
+		\caption{Estado final}
+		\label{fig:7}
+	\end{center}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Visualização do Tabuleiro}
+\section{Visualização do Tabuleiro\newline}
 
+A visualização do tabuleiro em modo de texto é feita através da composição
+de caracteres ASCII, como visto anteriormente. Para este efeito, foram desenvolvidos um conjunto de predicados. 
 
+O predicado principal é:
+\begin{itemize}
+	\item \textbf{printBoard(Board)}: recebe uma lista descritiva das peças que constituem o tabuleiro e imprime-o;
+\end{itemize}
 
+Os predicados auxiliares são:
+\begin{itemize}
+
+	\item \textbf{printBoardAux(Board, CurrentNumberVertical)}: chamada auxiliar de \textit{printBoard} que desenha \textit{(Board.length mod 8)} vezes;	
+	\item \textbf{printHorizontalLine(NumberOfDashes)}: imprime o número de travessões horizontais pretendido;
+	\item \textbf{printBlock(Line)}: imprime todos os blocos de uma determinada linha (horizontal);
+	\begin{itemize}
+		\item \textbf{printLine1(' ', Tile)}: imprime a primeira linha do bloco;
+		\item \textbf{print1(' ', Tile)}: predicado auxiliar de \textit{printLine1}, usada para a chamada recursiva;
+		\item \textbf{printLine2(' ', Tile)}: imprime a segunda linha do bloco;
+		\item \textbf{print2(' ', Tile)}: predicado auxiliar de \textit{printLine2}, usada para a chamada recursiva;
+		\item \textbf{printLine3(' ', Tile)}: imprime a terceira linha do bloco;
+		\item \textbf{print3(' ', Tile)}: predicado auxiliar de \textit{printLine3}, usada para a chamada recursiva;
+		\item \textbf{toPrintMiddle(N)}: verifica se 
+		\begin{math}
+			N>0 \wedge N<8;
+		\end{math}
+		\item \textbf{printBeginning(\_)}: imprime o travessão vertical da primeira linha do bloco;
+		\item \textbf{printMiddle(\_)}: imprime o travessão vertical da segunda linha do bloco;
+		\item \textbf{printEnd(\_)}: imprime o travessão vertical da terceira linha do bloco;
+	\end{itemize}
+	\item \textbf{convertCode([Cross\textbar Tile], X, Y)}: traduz o átomo em peça de jogo;
+	\begin{itemize}
+		\item \textbf{convertCodeAux(Cross, [Tile\textbar \_], X, Y)}: predicado auxiliar de \textit{convertCode};
+		\item \textbf{translateCodeToChar(X, Y)}: traduz o código X para o código Y;
+	\end{itemize}
+	\item \textbf{printInfo(\_)}: apresenta informação à cerca da representação do jogo;
+	
+	\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[scale=0.7]{./images/info.png}
+			\caption{Informação geral apresentada}
+			\label{fig:8}
+		\end{center}
+	\end{figure}
+
+\end{itemize}
+\vspace{10 mm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Movimentos}
+\section{Movimentos\newline}
 
-\textbf{Falha se o \textit{Joker} é posto numa posição errada}\newline
-\begin{small}
-placeJoker(Board, Player, TileNumber).
-\end{small}\newline
+\begin{center}
+\textbf{placeJoker(Board, Player, TileNumber).}
+\end{center}
+Função usada para colocar o \textit{Joker} numa posição específica. Falha se for escolhida numa posição incompatível.\newline
 
-\textbf{Devolve as jogadas possíveis em ListOfMoves}\newline
-\begin{small}
-validMoves(Board, Player, ListOfMoves).
-\end{small}\newline
+\begin{center}
+\textbf{validMoves(Board, Player, ListOfMoves).}
+\end{center}
+Devolve as jogadas possíveis em \textit{ListOfMoves}.\newline
 
-\textbf{Falha se não poder ser feito o movimento}\newline
-\begin{small}
-move(Board, Player, TileNumber, NewBoard).
-\end{small}\newline
+\begin{center}
+\textbf{move(Board, Player, TileNumber, NewBoard).}
+\end{center}
+Coloca uma nova peça de jogo no tabuleiro. Falha se a peça não poder ser adicionada naquela posição.\newline
 
-\textbf{Avalia a jogada e devolve o seu valor em Value}\newline
-\begin{small}
-value(Board, Player, TileNumber, Value).
-\end{small}\newline
+\begin{center}
+\textbf{value(Board, Player, TileNumber, Value).}
+\end{center}
+Avalia a jogada e devolve o seu valor em \textit{Value}.\newline
 
-\textbf{Caso o jogo tenha acabado devolve o vencedor em Winner}\newline
-\begin{small}
-gameOver(Board, Winner).
-\end{small}\newline
+\begin{center}
+\textbf{gameOver(Board, Winner).}
+\end{center}
+Caso o jogo tenha acabado, devolve o vencedor em \textit{Winner}.\newline
 
-\textbf{Jogada do computador em que consoante diferentes níveis de dificuldade (Level) devolve jogadas diferentes}\newline
-\begin{small}
-choose\_Move(Board, Level, Move).
-\end{small}\newline
+\begin{center}
+\textbf{choose\_Move(Board, Level, Move).}
+\end{center}
+Função em que consoante os diferentes níveis de dificuldade (\textit{Level}) devolve jogadas possíveis.\newline
 
-\textbf{Põe as bases e tira as cruzes do jogador Player}\newline
-\begin{small}
-putTiles(Board, Player, NewBoard).
-\end{small}\newline
+\begin{center}
+\textbf{putTiles(Board, Player, NewBoard).}
+\end{center}
+Substitui as peças de jogo pelos marcadores do \textit{Player}.
 
 
 \end{document}

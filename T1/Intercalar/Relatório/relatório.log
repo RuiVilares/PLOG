@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.6)  8 OCT 2015 12:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.6)  9 OCT 2015 15:14
 entering extended mode
 **relatório.tex
 (relatório.tex
@@ -356,7 +356,55 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(relatório.aux)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+Package: multicol 2014/10/28 v1.8i multicolumn formatting (FMi)
+\c@tracingmulticols=\count105
+\mult@box=\box28
+\multicol@leftmargin=\dimen118
+\c@unbalance=\count106
+\c@collectmore=\count107
+\doublecol@number=\count108
+\multicoltolerance=\count109
+\multicolpretolerance=\count110
+\full@width=\dimen119
+\page@free=\dimen120
+\premulticols=\dimen121
+\postmulticols=\dimen122
+\multicolsep=\skip48
+\multicolbaselineskip=\skip49
+\partial@page=\box29
+\last@line=\box30
+\maxbalancingoverflow=\dimen123
+\mult@rightbox=\box31
+\mult@grightbox=\box32
+\mult@gfirstbox=\box33
+\mult@firstbox=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\c@columnbadness=\count111
+\c@finalcolumnbadness=\count112
+\last@try=\dimen124
+\multicolovershoot=\dimen125
+\multicolundershoot=\dimen126
+\mult@nat@firstbox=\box52
+\colbreak@box=\box53
+\mc@col@check@num=\count113
+) (relatório.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
@@ -369,25 +417,26 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
- ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count105
-\scratchdimen=\dimen118
-\scratchbox=\box28
-\nofMPsegments=\count106
-\nofMParguments=\count107
+\scratchcounter=\count114
+\scratchdimen=\dimen127
+\scratchbox=\box54
+\nofMPsegments=\count115
+\nofMParguments=\count116
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count108
-\MPscratchDim=\dimen119
-\MPnumerator=\count109
-\makeMPintoPDFobject=\count110
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen128
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
 \everyMPtoPDFconversion=\toks21
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count111
+\c@lstlisting=\count120
  <./images/feup-logo.png, id=1, 2252.415pt x 742.775pt>
 File: ./images/feup-logo.png Graphic file (type png)
 
@@ -403,8 +452,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/feup-logo.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 90.
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 90.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -445,76 +497,182 @@ e 137.
 (pdftex.def)             Requested size: 136.5746pt x 76.73888pt.
  [3 <./images/modx_score.jpg> <./images/padroesPretos.png> <./images/padroesPre
 tosMarcadores.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
+
+ []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 169.
+(Font)              <9> on input line 209.
 
-Overfull \hbox (15.75119pt too wide) in paragraph at lines 169--170
+Overfull \hbox (15.75119pt too wide) in paragraph at lines 209--210
 [][][] 
  []
 
 
-Overfull \hbox (10.20117pt too wide) in paragraph at lines 176--177
+Overfull \hbox (4.65115pt too wide) in paragraph at lines 210--211
 [][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--209
+Overfull \hbox (10.20117pt too wide) in paragraph at lines 211--212
+[][][] 
+ []
+
+
+Overfull \hbox (4.65115pt too wide) in paragraph at lines 213--214
+[][][] 
+ []
+
+
+Overfull \hbox (10.20117pt too wide) in paragraph at lines 214--215
+[][][] 
+ []
+
+
+Overfull \hbox (4.65115pt too wide) in paragraph at lines 215--216
+[][][] 
+ []
+
+
+Overfull \hbox (10.20117pt too wide) in paragraph at lines 216--217
+[][][] 
+ []
+
+<./images/inicial.png, id=28, 404.26031pt x 326.72063pt>
+File: ./images/inicial.png Graphic file (type png)
+
+<use ./images/inicial.png>
+Package pdftex.def Info: ./images/inicial.png used on input line 223.
+(pdftex.def)             Requested size: 161.70125pt x 130.68593pt.
+ [4 <./images/inicial.png>]
+Overfull \hbox (10.20117pt too wide) in paragraph at lines 235--236
+[][][] 
+ []
+
+
+Overfull \hbox (4.65115pt too wide) in paragraph at lines 236--237
+[][][] 
+ []
+
+
+Overfull \hbox (10.20117pt too wide) in paragraph at lines 237--238
+[][][] 
+ []
+
+
+Overfull \hbox (4.65115pt too wide) in paragraph at lines 242--243
+[][][] 
+ []
+
+<./images/intermedio.png, id=36, 405.01312pt x 325.215pt>
+File: ./images/intermedio.png Graphic file (type png)
+
+<use ./images/intermedio.png>
+Package pdftex.def Info: ./images/intermedio.png used on input line 248.
+(pdftex.def)             Requested size: 162.00237pt x 130.0837pt.
+
+Overfull \hbox (10.20117pt too wide) in paragraph at lines 260--261
+[][][] 
+ []
+
+
+Overfull \hbox (4.65115pt too wide) in paragraph at lines 261--262
+[][][] 
+ []
+
+
+Overfull \hbox (4.65115pt too wide) in paragraph at lines 263--264
+[][][] 
+ []
+
+
+Overfull \hbox (4.65115pt too wide) in paragraph at lines 265--266
+[][][] 
+ []
+
+<./images/final.png, id=37, 397.485pt x 325.96782pt>
+File: ./images/final.png Graphic file (type png)
+ <use ./images/final.png>
+Package pdftex.def Info: ./images/final.png used on input line 271.
+(pdftex.def)             Requested size: 158.99118pt x 130.38481pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--278
+
+ []
+
+[5 <./images/intermedio.png> <./images/final.png>]
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 309.
+
+<./images/info.png, id=43, 249.18094pt x 203.25937pt>
+File: ./images/info.png Graphic file (type png)
+ <use ./images/info.png>
+Package pdftex.def Info: ./images/info.png used on input line 318.
+(pdftex.def)             Requested size: 174.42545pt x 142.28058pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--214
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--219
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--224
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--229
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--234
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 235--239
-
- []
-
-[4] (relatório.aux) ) 
+[7 <./images/info.png>] (relatório.aux) ) 
 Here is how much of TeX's memory you used:
- 4669 strings out of 493698
- 66341 string characters out of 3144418
- 134055 words of memory out of 3000000
- 7964 multiletter control sequences out of 15000+200000
- 10118 words of font info for 35 fonts, out of 3000000 for 9000
+ 4804 strings out of 493698
+ 68425 string characters out of 3144418
+ 147424 words of memory out of 3000000
+ 8092 multiletter control sequences out of 15000+200000
+ 10014 words of font info for 35 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  44i,9n,47p,316b,1059s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on relatório.pdf (4 pages, 1315561 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmbsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti
+10.pfb>
+Output written on relatório.pdf (7 pages, 1349216 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 95 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
