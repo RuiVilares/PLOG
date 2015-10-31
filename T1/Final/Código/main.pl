@@ -5,6 +5,7 @@
 :- include('auxiliaryFunctions.pl').
 :- include('printFunctions.pl').
 :- include('gameFunctions.pl').
+:- include('randomPC.pl').
 
 % START GAME
 modx:-
