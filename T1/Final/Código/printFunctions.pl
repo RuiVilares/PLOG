@@ -28,6 +28,7 @@ printHorizontalLine(NumberOfDashes) :-
 	printHorizontalLine(N).
 horizontalLine(Number) :-
 	Number < 8,
+	write('  '),
 	write('|'),
 	printHorizontalLine(63),
 	write('|').
@@ -54,29 +55,36 @@ writeChar(X, N) :-
 %imprime o tabuleiro
 %65 tracos horizontais
 printBoard(Board) :-
+	emptyBoard(Board),
+	nl, write('      1       2       3       4       5       6       7       8    '), nl,
+	write('  '),
 	printHorizontalLine(65),
 	printBoardAux(Board,0),
+	write('  '),
 	printHorizontalLine(65),
 	nl.
 
 %chamada auxiliar de 'printBoard' e que desenha (Board.length div 8) vezes
 printBoardAux([],_).
 printBoardAux([Line|Board], CurrentNumberVertical) :-
-	printBlock(Line),
 	Block is CurrentNumberVertical + 1,
+	printBlock(Line, Block),
 	nl,
 	horizontalLine(Block),
 	printBoardAux(Board, Block).
 
 %imprime todos os blocos de uma linha (horizontal)
-printBlock(Line) :-
+printBlock(Line, LineNum) :-
 	nl,
+	write('  '),
 	printBeginning(_), % '| '
 	printLine1(Line, 0), %desenha primeira linha do bloco
 	printEnd(_), nl, % ' |\n'
+	write(LineNum), write(' '),
 	printBeginning(_),
 	printLine2(Line, 0), %desenha segunda linha do bloco
 	printEnd(_), nl,
+	write('  '),
 	printBeginning(_),
 	printLine3(Line, 0), %desenha terceira linha do bloco
 	printEnd(_).
