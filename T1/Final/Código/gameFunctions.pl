@@ -2,14 +2,16 @@
 
 
 createPlayerVSPlayer(Game):-
-	emptyBoard(Board),
-	putJokers(Board, 5, NewBoard),
-	printMatrix(NewBoard),
-	putPlayer1Marker(NewBoard, 0, 0, NewBoard1),
-	putPlayer1Piece(NewBoard1, NewBoard2),
-	printMatrix(NewBoard2),
-	getEndPoins(Game, Points),
-	write(Points), nl, nl.
+	checkEndConditions(Game),
+	write('Jogo deve continuar'), nl.
+	%%emptyBoard(Board),
+	%%putJokers(Board, 5, NewBoard),
+	%%printBoard(NewBoard),
+	%%putPlayer1Marker(NewBoard, 0, 0, NewBoard1),
+	%%putPlayer1Piece(NewBoard1, NewBoard2),
+	%%printBoard(NewBoard2),
+	%%getEndPoins(Game, Points),
+	%%write(Points), nl, nl.
 	
 	
 	
@@ -30,13 +32,37 @@ putJokers(Board, Num, NewBoard):-
 	putJokers(X, Num1, NewBoard).
 
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TESTAR ISTO A VER SE FUNCIONA
+
 checkValidPosition(Board, Row, Col):-
 	getMatrixElemAt(Row, Col, Board, Elem),
 	getListElemAt(0, Elem, ResElem),
 	ResElem == -1.
 	
-%%checkEndConditions(Game):-.
+%% Quando retorna no, significa que o jogo deve acabar _________________ TESTAR ESTA FUNçÃO
+checkEndConditions(Game):-
+	checkPointsEnd(Game),
+	checkPiecesEnd(Game),
+	checkMarkersEnd(Game).
+	
+checkPointsEnd(Game):-
+	getEndPoins(Game, Points),
+	getPontuationPlayer1(Game, Pont1),
+	getPontuationPlayer2(Game, Pont2),
+	Pont1 < Points,
+	Pont2 < Points.
+	
+checkPiecesEnd(Game):-
+	getNumPiecesPlayer1(Game, Pieces1),
+	getNumPiecesPlayer2(Game, Pieces2),
+	Pieces1 > 0,
+	Pieces2 > 0.
+	
+checkMarkersEnd(Game):-
+	getNumMarkersPlayer1(Game, Markers1),
+	getNumMarkersPlayer2(Game, Markers2),
+	Markers1 > 0,
+	Markers2 > 0.
+		
 
 defineEndPoins(Points):-
 	repeat,
@@ -44,7 +70,7 @@ defineEndPoins(Points):-
 		getInt(Points),
 		discardInputChar,
 		Points > 0,
-		Points < 9, %% AQUI TEM DE SER 19 CORRIGIR __________________________________________________________________________
+		Points < 9, %% AQUI TEM DE SER 19 CORRIGIR (Problema ao ler dois digitos)__________________________________________________________________________
 	!.
 
 getEndPoins(Game, Points):-
