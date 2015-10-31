@@ -55,7 +55,6 @@ writeChar(X, N) :-
 %imprime o tabuleiro
 %65 tracos horizontais
 printBoard(Board) :-
-	emptyBoard(Board),
 	nl, write('      1       2       3       4       5       6       7       8    '), nl,
 	write('  '),
 	printHorizontalLine(65),
