@@ -2,17 +2,11 @@
 
 
 createPlayerVSPlayer(Game):-
-	%emptyBoard(Board),
-	%putJokers(Board, 5, NewBoard),
-	%putPlayer1Piece()
-	decNumMarkersPlayer1(Game, NewGame),
-	decNumMarkersPlayer1(NewGame, NewGame1),
-	decNumMarkersPlayer2(NewGame1, NewGame2),
-	decNumMarkersPlayer2(NewGame2, NewGame3),
-	getPontuationPlayer1(NewGame3, Pont1),
-	getPontuationPlayer2(NewGame3, Pont2),
-	write(Pont1), nl,
-	write(Pont2), nl.
+	emptyBoard(Board),
+	putJokers(Board, 5, NewBoard),
+	putPlayer1Marker(NewBoard, 0, 0, NewBoard1),
+	putPlayer1Piece(NewBoard1, NewBoard2),
+	printBoard(NewBoard2).
 	
 	
 	
@@ -24,8 +18,7 @@ createBotVsBot(Game):-
 	emptyBoard(Board).
 
 
-putJokers(X, 0, X):-
-	printBoard(X).
+putJokers(X, 0, X).
 	
 putJokers(Board, Num, NewBoard):-
 	Num > 0,
@@ -35,39 +28,55 @@ putJokers(Board, Num, NewBoard):-
 
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TESTAR ISTO A VER SE FUNCIONA
+checkValidPosition(Board, Row, Col):-
+	getMatrixElemAt(Row, Col, Board, Elem),
+	getListElemAt(0, Elem, ResElem),
+	ResElem == -1.
+
 putJoker(Board, NewBoard):-
 	repeat,
 		once(readCoords(Row, Col)),
-		insertPiece(Board, [0, _], Row, Col, NewBoard),
+		once(checkValidPosition(Board, Row, Col)),
+		insertPiece(Board, 0, Row, Col, NewBoard),
 	!.
 
 putRandomJoker(Board, NewBoard):-
 	repeat,
 		once(random(0, 8, Row)),
 		once(random(0, 8, Col)),
-		insertPiece(Board, [0, _], Row, Col, NewBoard),
+		once(checkValidPosition(Board, Row, Col)),
+		insertPiece(Board, 0, Row, Col, NewBoard),
 	!.
 
 putPlayer1Marker(Board, Row, Col, NewBoard):-
-		insertPiece(Board, [_, 11], Row, Col, NewBoard).
+	insertMarker(Board, 11, Row, Col, NewBoard).
 		
 putPlayer2Marker(Board, Row, Col, NewBoard):-
-		insertPiece(Board, [_, 22], Row, Col, NewBoard).
+	insertMarker(Board, 22, Row, Col, NewBoard).
 
 putPlayer1Piece(Board, NewBoard):-
 	repeat,
 		once(readCoords(Row, Col)),
-		insertPiece(Board, [1, _], Row, Col, NewBoard),
+		once(checkValidPosition(Board, Row, Col)),
+		insertPiece(Board, 1, Row, Col, NewBoard),
 	!.	
 	
 putPlayer2Piece(Board, NewBoard):-
 	repeat,
 		once(readCoords(Row, Col)),
-		insertPiece(Board, [2, _], Row, Col, NewBoard),
+		once(checkValidPosition(Board, Row, Col)),
+		insertPiece(Board, 2, Row, Col, NewBoard),
 	!.
 	
 insertPiece(Board, Piece, Row, Col, NewBoard):-
-	setMatrixElemAtWith(Row, Col, Piece, Board, NewBoard).
+	getMatrixElemAt(Row, Col, Board, Elem),
+	getListElemAt(1, Elem, ResElem),
+	setMatrixElemAtWith(Row, Col, [Piece, ResElem], Board, NewBoard).
+	
+insertMarker(Board, Marker, Row, Col, NewBoard):-
+	getMatrixElemAt(Row, Col, Board, Elem),
+	getListElemAt(0, Elem, ResElem),
+	setMatrixElemAtWith(Row, Col, [ResElem, Marker], Board, NewBoard).
 
 % INC AND DEC PIECES OR MARKERS
 
@@ -169,6 +178,12 @@ getPontuationPlayer2(Game, Pont):-
 
 
 
+getGameBoard(Game, Board):-
+	getListElemAt(0, Game, Board).
+	
+setGameBoard(Game, Board, ResGame):-
+		setListElemAtWith(0, Board, Game, ResGame).
+	
 emptyBoard([
 			[[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1]],
 			[[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1]],
