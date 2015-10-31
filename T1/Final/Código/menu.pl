@@ -52,8 +52,9 @@ playMenu:-
 	).
 	
 
-startPlayerVSPlayer:- 
-	Game = [Board, [[14, 18], [14, 18]], Player1, PlayerVSPlayer],
+startPlayerVSPlayer:-
+	defineEndPoins(Points),
+	Game = [Board, [[14, 18], [14, 18]], Player1, PlayerVSPlayer, Points],
 	createPlayerVSPlayer(Game),
 	%playGame(Game)
 	pressEnterToContinue, nl.

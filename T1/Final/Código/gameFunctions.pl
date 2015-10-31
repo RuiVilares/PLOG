@@ -4,9 +4,12 @@
 createPlayerVSPlayer(Game):-
 	emptyBoard(Board),
 	putJokers(Board, 5, NewBoard),
+	printMatrix(NewBoard),
 	putPlayer1Marker(NewBoard, 0, 0, NewBoard1),
 	putPlayer1Piece(NewBoard1, NewBoard2),
-	printBoard(NewBoard2).
+	printMatrix(NewBoard2),
+	getEndPoins(Game, Points),
+	write(Points), nl, nl.
 	
 	
 	
@@ -32,7 +35,21 @@ checkValidPosition(Board, Row, Col):-
 	getMatrixElemAt(Row, Col, Board, Elem),
 	getListElemAt(0, Elem, ResElem),
 	ResElem == -1.
+	
+%%checkEndConditions(Game):-.
 
+defineEndPoins(Points):-
+	repeat,
+		write('Define end points: '),
+		getInt(Points),
+		discardInputChar,
+		Points > 0,
+		Points < 9, %% AQUI TEM DE SER 19 CORRIGIR __________________________________________________________________________
+	!.
+
+getEndPoins(Game, Points):-
+	getListElemAt(4, Game, Points).
+	
 putJoker(Board, NewBoard):-
 	repeat,
 		once(readCoords(Row, Col)),
