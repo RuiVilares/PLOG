@@ -2,8 +2,17 @@
 
 
 createPlayerVSPlayer(Game):-
-	checkEndConditions(Game),
-	write('Jogo deve continuar'), nl.
+	emptyBoard(Board),
+	insertPiece(Board, 1, 0, 4, NewBoard1),
+	insertPiece(NewBoard1, 1, 1, 3, NewBoard2),
+	insertPiece(NewBoard2, 1, 2, 2, NewBoard3),
+	insertPiece(NewBoard3, 1, 3, 1, NewBoard4),
+	insertPiece(NewBoard4, 1, 4, 0, NewBoard5),
+	once(printBoard(NewBoard5)),
+	check5DiaLeft(NewBoard5, 1, 0, 4),
+	%%checkX(NewBoard5, Piece, Row1, Col1),
+	write('passou'), nl.
+	%%checkPlus(NewBoard5, Piece, Row1, Col1).
 	%%emptyBoard(Board),
 	%%putJokers(Board, 5, NewBoard),
 	%%printBoard(NewBoard),
@@ -14,22 +23,111 @@ createPlayerVSPlayer(Game):-
 	%%write(Points), nl, nl.
 	
 	
+%POINTS FUNCTIONS______________________________________________________________________________
+
+checkCond(Board, Piece, Row, Col):-
+	getMatrixElemAt(Row, Col, Board, Elem),
+	getListElemAt(0, Elem, ResElem),
+	ResElem == Piece.
+
+
+%% da coluna e linha 0 à 5
+
+checkX(Board, Piece, Row, Col):-
+	Row1 is Row + 1,
+	Row2 is Row + 2,
+	Col1 is Col + 1,
+	Col2 is Col + 2,
+	checkCond(Board, Piece, Row, Col),
+	checkCond(Board, Piece, Row, Col2),
+	checkCond(Board, Piece, Row2, Col2),
+	checkCond(Board, Piece, Row2, Col),
+	checkCond(Board, Piece, Row1, Col1).
 	
+
+
+%% da coluna e linha 1 à 6
+	
+checkPlus(Board, Piece, Row, Col):-
+	Row1 is Row + 1,
+	Row2 is Row + 2,
+	Col0 is Col - 1,
+	Col1 is Col + 1,
+	checkCond(Board, Piece, Row, Col),
+	checkCond(Board, Piece, Row1, Col),
+	checkCond(Board, Piece, Row2, Col),
+	checkCond(Board, Piece, Row1, Col0),
+	checkCond(Board, Piece, Row1, Col1).
+
+%coluna 0 a 3
+%linha 0 a 7	
+	
+check5Hor(Board, Piece, Row, Col):-
+	Col1 is Col + 1,
+	Col2 is Col + 2,
+	Col3 is Col + 3,
+	Col4 is Col + 4,
+	checkCond(Board, Piece, Row, Col),
+	checkCond(Board, Piece, Row, Col1),
+	checkCond(Board, Piece, Row, Col2),
+	checkCond(Board, Piece, Row, Col3),
+	checkCond(Board, Piece, Row, Col4).
+	
+%coluna 0 a 7
+%linha 0 a 3	
+	
+check5Ver(Board, Piece, Row, Col):-
+	Row1 is Row + 1,
+	Row2 is Row + 2,
+	Row3 is Row + 3,
+	Row4 is Row + 4,
+	checkCond(Board, Piece, Row, Col),
+	checkCond(Board, Piece, Row1, Col),
+	checkCond(Board, Piece, Row2, Col),
+	checkCond(Board, Piece, Row3, Col),
+	checkCond(Board, Piece, Row4, Col).
+	
+%coluna 0 a 3
+%linha 0 a 3
+check5DiaRight(Board, Piece, Row, Col):-
+	Row1 is Row + 1,
+	Col1 is Col + 1,
+	Row2 is Row + 2,
+	Col2 is Col + 2,
+	Row3 is Row + 3,
+	Col3 is Col + 3,
+	Row4 is Row + 4,
+	Col4 is Col + 4,
+	checkCond(Board, Piece, Row, Col),
+	checkCond(Board, Piece, Row1, Col1),
+	checkCond(Board, Piece, Row2, Col2),
+	checkCond(Board, Piece, Row3, Col3),
+	checkCond(Board, Piece, Row4, Col4).
+	
+%coluna 4 a 7
+%linha 4 a 7
+check5DiaLeft(Board, Piece, Row, Col):-
+	Row1 is Row + 1,
+	Col1 is Col - 1,
+	Row2 is Row + 2,
+	Col2 is Col - 2,
+	Row3 is Row + 3,
+	Col3 is Col - 3,
+	Row4 is Row + 4,
+	Col4 is Col - 4,
+	checkCond(Board, Piece, Row, Col),
+	checkCond(Board, Piece, Row1, Col1),
+	checkCond(Board, Piece, Row2, Col2),
+	checkCond(Board, Piece, Row3, Col3),
+	checkCond(Board, Piece, Row4, Col4).	
+	
+%%_______________________________________________________________________________________________________________
 	
 createPlayerVsBot(Game):-
 	emptyBoard(Board).
 	
 createBotVsBot(Game):-
 	emptyBoard(Board).
-
-
-putJokers(X, 0, X).
-	
-putJokers(Board, Num, NewBoard):-
-	Num > 0,
-	Num1 is Num - 1,
-	putRandomJoker(Board, X),
-	putJokers(X, Num1, NewBoard).
 
 	
 
@@ -38,7 +136,7 @@ checkValidPosition(Board, Row, Col):-
 	getListElemAt(0, Elem, ResElem),
 	ResElem == -1.
 	
-%% Quando retorna no, significa que o jogo deve acabar _________________ TESTAR ESTA FUNçÃO
+%% CHECK END CONDITIONS
 checkEndConditions(Game):-
 	checkPointsEnd(Game),
 	checkPiecesEnd(Game),
@@ -76,6 +174,17 @@ defineEndPoins(Points):-
 getEndPoins(Game, Points):-
 	getListElemAt(4, Game, Points).
 	
+
+% JOKER FUCTIONS	
+putJokers(X, 0, X).
+	
+putJokers(Board, Num, NewBoard):-
+	Num > 0,
+	Num1 is Num - 1,
+	putRandomJoker(Board, X),
+	putJokers(X, Num1, NewBoard).
+
+	
 putJoker(Board, NewBoard):-
 	repeat,
 		once(readCoords(Row, Col)),
@@ -91,6 +200,7 @@ putRandomJoker(Board, NewBoard):-
 		insertPiece(Board, 0, Row, Col, NewBoard),
 	!.
 
+% MARKERS AND PIECES
 putPlayer1Marker(Board, Row, Col, NewBoard):-
 	insertMarker(Board, 11, Row, Col, NewBoard).
 		
@@ -121,8 +231,7 @@ insertMarker(Board, Marker, Row, Col, NewBoard):-
 	getListElemAt(0, Elem, ResElem),
 	setMatrixElemAtWith(Row, Col, [ResElem, Marker], Board, NewBoard).
 
-% INC AND DEC PIECES OR MARKERS
-
+% INC AND DEC NUMERO PIECES OR MARKERS
 getNumPiecesPlayer1(Game, Num):-
 	getListElemAt(1, Game, Lista),
 	getListElemAt(0, Lista, Player1),
@@ -211,6 +320,8 @@ incNumMarkersPlayer2(Game, NewGame):-
 	Num1 is Num + 1,
 	setNumMarkersPlayer2(Game, Num1, NewGame).
 	
+	
+%GET PONTUATION	
 getPontuationPlayer1(Game, Pont):-
 	getNumMarkersPlayer1(Game, Num),
 	Pont is 18 - Num.
@@ -221,6 +332,9 @@ getPontuationPlayer2(Game, Pont):-
 
 
 
+	
+	
+%BOARD FUNCTIONS
 getGameBoard(Game, Board):-
 	getListElemAt(0, Game, Board).
 	
