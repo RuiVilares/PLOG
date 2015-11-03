@@ -45,23 +45,24 @@ playMenu:-
 	getChar(Input),
 	(
 		Input = '1' -> startPlayerVsPlayer;
-		Input = '2' -> startPvBGame;
-		Input = '3' -> startBvBGame;
+		Input = '2' -> startPlayerVsPc;
+		Input = '3' -> startPcVsPc;
 		Input = '4';
 		gameModeMenu
 	).
 	
 
-startPlayerVSPlayer:-
-	defineEndPoins(Points),
-	Game = [Board, [[14, 18], [14, 18]], Player1, PlayerVSPlayer, Points],
-	createPlayerVSPlayer(Game),
-	%playGame(Game)
-	pressEnterToContinue, nl.
+startPlayerVsPlayer:-
+	createPlayerVsPlayer(Game),
+	playGame(Game).
 	
-%startPlayerVsPc:-
+startPlayerVsPc:-
+	createPlayerVsPc(Game),
+	playGame(Game).
 
-%startPcVsPc:-
+startPcVsPc:-
+	createPcVsPc(Game),
+	playGame(Game).
 	
 printHelpMenu:-
 	clearConsole,
