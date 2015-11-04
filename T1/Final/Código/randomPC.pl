@@ -39,7 +39,7 @@ findBestOption(Board, Num, Player, NewBoard, Game, Points):-
 	),
 	(
 	Pontuation > Points->
-			(findBestOption(BoardFixed, Num1, Player, NewBoard, Game, Pontuation));
+			(findBestOption(BoardTemp, Num1, Player, NewBoard, Game, Pontuation));
 		findBestOption(Board, Num1, Player, NewBoard, Game, Points)
 	).	
 
