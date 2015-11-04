@@ -10,21 +10,9 @@
 % START GAME
 modx:-
 	initializeRandom,
-	%%mainMenu.
-	%%startPlayerVSPlayer.
-	emptyBoard(Board),
-	defineEndPoins(Points),
-	write(Points),nl,
-	Game = [Board, [[14, 18], [14, 18]], player1, playerVSplayer, Points],
-	insertPiece(Board, 1, 0, 4, NewBoard1),
-	insertPiece(NewBoard1, 1, 1, 3, NewBoard2),
-	insertPiece(NewBoard2, 0, 2, 2, NewBoard3),
-	insertPiece(NewBoard3, 1, 3, 1, NewBoard4),
-	insertPiece(NewBoard4, 1, 4, 0, Board5),
-	setGameBoard(Game, Board5, NewGame),
-	endTurn(NewGame, NewGame1),
-	getGameBoard(NewGame1, NewBoard),
-	printBoard(NewBoard).
+	mainMenu.
+	startPlayerVSPlayer.
+
 	
 	
 % PLAYER 
@@ -78,17 +66,19 @@ playGame(Game):-
 	(
 		% pc vs pc
 		(getGameMode(Game, Mode), Mode == pcVSpc) -> (
-			pressEnterToContinue, !
+			(getGamePcLevel(Game, Level), Level == 1) -> (pcRandomMove(Game, NewGame), pressEnterToContinue, playGame(NewGame), !);
+			(getGamePcLevel(Game, Level), Level == 2) -> (pcSmartMove(Game, NewGame), pressEnterToContinue, playGame(NewGame), !)
 		);
 		% player vs. player or player vs. bot
 		(
-			letHumanPlay(Game, ResGame),
+			humanTurn(Game, ResGame),
 			(
 				% player vs player
 				(getGameMode(Game, Mode), Mode == playerVSplayer) -> (playGame(ResGame), !);
 
 				% player vs pc
-				(pressEnterToContinue, !)
+				(getGamePcLevel(ResGame, Level), Level == 1) -> (pcRandomMove(ResGame, NewGame), pressEnterToContinue, playGame(NewGame), !);
+				(getGamePcLevel(ResGame, Level), Level == 2) -> (pcSmartMove(ResGame, NewGame), pressEnterToContinue, playGame(NewGame), !)
 			)
 		)
 	).
@@ -98,28 +88,35 @@ playGame(Game):-
 	clearConsole,
 	getGameBoard(Game, Board), 
 	printBoard(Board),
-
+	getPontuationPlayer1(Game, Pont1),
+	getPontuationPlayer2(Game, Pont2),
 	% check which player won
 	getGamePlayerTurn(Game, Player),
 	(
-		Player == player1 ->
-			(write('# Game over. Player 2 won, congratulations!'), nl);
-		Player == player2 ->
-			(write('# Game over. Player 1 won, congratulations!'), nl)
+		(Pont1 > Pont2 ->
+			(write('# Game over. Player 1 won, congratulations!'), nl));
+		(Pont1 < Pont2 ->
+			(write('# Game over. Player 2 won, congratulations!'), nl));
+		(getNumPiecesPlayer1(Game, Num1), getNumPiecesPlayer2(Game, Num2),
+			(Num1 @>  Num2 ->
+			(write('# Game over. Player 1 won, Player 1 was more unused pieces'), nl));
+			(Num1 @< Num2 ->
+			(write('# Game over. Player 2 won, Player 2 was more unused pieces'), nl))
+		)
 	),
 	nl,
 	pressEnterToContinue, !.
 	
-letHumanPlay(Game, ResGame):-
+humanTurn(Game, ResGame):-
 	getGameBoard(Game, Board), getGamePlayerTurn(Game, Player),
-
+	
 	clearConsole,
 	printBoard(Board),
 	printTurnInfo(Player, Game), nl, nl,
 	putPlayerPiece(Board, Player, NewBoard),
 	decNumPiecesPlayer(Game, Player, Game1),
-	%% Função de iteração completa que retorna o temp Game
-	setGameBoard(Game1, NewBoard, TempGame),%% APENAS TEMPORÁRIA
+	setGameBoard(Game1, NewBoard, Game2),
+	endTurn(Game2, TempGame),
 	changePlayer(TempGame, ResGame), !.
 	
 printTurnInfo(player1, Game):-

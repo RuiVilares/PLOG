@@ -1,6 +1,14 @@
 
 %put pc piece (player 2)
-pcMove(Board, NewBoard):-
+pcMove(Board, player1, NewBoard):-
+	repeat,
+		once(random(0, 8, Row)),
+		once(random(0, 8, Col)),
+		once(checkValidPosition(Board, Row, Col)),
+		insertPiece(Board, 1, Row, Col, NewBoard),
+	!.
+	
+pcMove(Board, player2, NewBoard):-
 	repeat,
 		once(random(0, 8, Row)),
 		once(random(0, 8, Col)),
@@ -8,26 +16,54 @@ pcMove(Board, NewBoard):-
 		insertPiece(Board, 2, Row, Col, NewBoard),
 	!.
 
-%returns a valid list of NumBoards that the pc can play
-%this predicate can be omitted
-%and only used the pcValidMovesAux
-%this function is useful for debug
-pcValidMoves(Board, NumBoards, NewBoards) :-
-	emptyBoard(Board),
-	pcValidMovesAux(Board, NumBoards, NewBoards),
-	printNew(NewBoards).
+	
+pcSmartMoveAlgorithm(Board, Player, NewBoard):-
+	findBestOption(Board, 5, Player, NewBoard).
+	
 
-%print a list of boards (temporary)
-printNew([]).
-printNew([X|Xs]) :-
-	%write(X),nl,nl,nl,
-	printBoard(X),
-	printNew(Xs).
 
-%returns a valid list of NumBoards that the pc can play
-pcValidMovesAux(X, 0, []).
-pcValidMovesAux(Board, NumBoards, [BoardTemp|NewBoards]) :-
-	NumBoards > 0,
-	N is NumBoards - 1,
-	pcMove(Board, BoardTemp),
-	pcValidMovesAux(Board, N, NewBoards).
+findBestOption(Board, 0, Player, Board).
+findBestOption(Board, Num, Player, NewBoard):-
+	Num > 0,
+	Num1 is Num - 1,
+	pcMove(Board, Player, BoardTemp),
+	(
+	Player == player1 ->
+			checkAll(BoardTemp, 1, BoardChecked);
+	checkAll(BoardTemp, 2, BoardChecked)
+	),
+	(
+	BoardTemp == BoardChecked ->
+			findBestOption(Board, Num1, Player, NewBoard);
+	findBestOption(BoardTemp, Num1, Player, NewBoard)
+	).
+	
+	
+	
+	
+	
+	
+pcRandomMove(Game, NewGame):-
+	getGameBoard(Game, Board), getGamePlayerTurn(Game, Player),
+	clearConsole,
+	printBoard(Board),
+	printTurnInfo(Player, Game), nl, nl,
+	pcMove(Board, Player, NewBoard),				
+	decNumPiecesPlayer(Game, Player, Game1),
+	setGameBoard(Game1, NewBoard, Game2),
+	endRandomTurn(Game2, TempGame),
+	changePlayer(TempGame, NewGame), !.
+	
+
+pcSmartMove(Game, NewGame):-
+	getGameBoard(Game, Board), getGamePlayerTurn(Game, Player),
+	clearConsole,
+	printBoard(Board),
+	printTurnInfo(Player, Game), nl, nl,
+	pcSmartMoveAlgorithm(Board, Player, NewBoard),
+	Board == NewBoard ->
+			pcMove(Board, Player, NewBoard),	
+	decNumPiecesPlayer(Game, Player, Game1),
+	setGameBoard(Game1, NewBoard, Game2),
+	endRandomTurn(Game2, TempGame),
+	changePlayer(TempGame, NewGame), !.

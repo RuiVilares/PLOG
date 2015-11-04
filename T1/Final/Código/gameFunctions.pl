@@ -5,41 +5,23 @@ createPlayerVsPlayer(Game):-
 	defineEndPoins(Points),
 	emptyBoard(EmptyBoard),
 	putJokers(EmptyBoard, 5, Board),
-	Game = [Board, [[14, 18], [14, 18]], player1, playerVSplayer, Points].
+	Game = [Board, [[14, 18], [14, 18]], player1, playerVSplayer, Points, []].
 	
 createPlayerVsPc(Game):-
 	defineEndPoins(Points),
+	write('Choose Player 2 difficult level: '), nl, definePcDifficultLevel(Level),
 	emptyBoard(EmptyBoard),
 	putJokers(EmptyBoard, 5, Board),
-	Game = [Board, [[14, 18], [14, 18]], player1, playerVSpc, Points].
+	Game = [Board, [[14, 18], [14, 18]], player1, playerVSpc, Points, [0, Level]].
 	
 createPcVsPc(Game):-
 	defineEndPoins(Points),
+	write('Choose Player 1 difficult level: '), nl, definePcDifficultLevel(Level1),
+	write('Choose Player 2 difficult level: '), nl, definePcDifficultLevel(Level2),
 	emptyBoard(EmptyBoard),
 	putJokers(EmptyBoard, 5, Board),
-	Game = [Board, [[14, 18], [14, 18]], player1, pcVSpc, Points].
-	
-	%insertPiece(Board, 1, 0, 4, NewBoard1),
-	%insertPiece(NewBoard1, 1, 1, 3, NewBoard2),
-	%insertPiece(NewBoard2, 0, 2, 2, NewBoard3),
-	%insertPiece(NewBoard3, 1, 3, 1, NewBoard4),
-	%insertPiece(NewBoard4, 1, 4, 0, Board5),
-	%once(printBoard(Board5)),
-	%check5AndReplaceDiaLeft(Board5, 1, 0, 4, NewBoard),
-	%printMatrix(NewBoard),
-	%fixBoard(NewBoard, NewBoard6),
-	%printBoard(NewBoard6),
-	%%checkX(NewBoard5, Piece, Row1, Col1),
-	%write('passou'), nl.
-	%%checkPlus(NewBoard5, Piece, Row1, Col1).
-	%%emptyBoard(Board),
-	%%putJokers(Board, 5, NewBoard),
-	%%printBoard(NewBoard),
-	%%putPlayer1Marker(NewBoard, 0, 0, NewBoard1),
-	%%putPlayer1Piece(NewBoard1, NewBoard2),
-	%%printBoard(NewBoard2),
-	%%getEndPoins(Game, Points),
-	%%write(Points), nl, nl.
+	Game = [Board, [[14, 18], [14, 18]], player1, pcVSpc, Points, [Level1, Level2]].
+
 	
 	
 %POINTS FUNCTIONS______________________________________________________________________________
@@ -74,6 +56,11 @@ assertNumJokers(Board, NewBoard):-
 	countNumOfJokers(Board, Num),
 	Num1 is 5 - Num,
 	putPlayerJokers(Board, Num1, NewBoard).
+	
+assertNumJokersRandom(Board, NewBoard):-
+	countNumOfJokers(Board, Num),
+	Num1 is 5 - Num,
+	putJokers(Board, Num1, NewBoard).
 	
 countNumOfJokersAux([],0).
 	
@@ -119,6 +106,15 @@ endTurn(Game, NewGame):-
 	(Player == player2, checkAll(Board, 2, Board1))),
 	fixBoard(Board1, Board2, Game, Game1),
 	assertNumJokers(Board2, NewBoard),
+	setGameBoard(Game1, NewBoard, NewGame).
+	
+endRandomTurn(Game, NewGame):-
+	getGameBoard(Game, Board),
+	getGamePlayerTurn(Game, Player),
+	((Player == player1, checkAll(Board, 1, Board1));
+	(Player == player2, checkAll(Board, 2, Board1))),
+	fixBoard(Board1, Board2, Game, Game1),
+	assertNumJokersRandom(Board2, NewBoard),
 	setGameBoard(Game1, NewBoard, NewGame).
 	
 	
@@ -485,8 +481,19 @@ defineEndPoins(Points):-
 		Points3 is Points1 * 10,
 		Points	is Points3 + Points2,
 		Points > 0,
-		Points < 19, %% AQUI TEM DE SER 19 CORRIGIR (Problema ao ler dois digitos)__________________________________________________________________________
+		Points < 19,
 	!.
+	
+definePcDifficultLevel(Level):-
+	repeat,
+		write('> '), 
+		getInt(Level),
+		discardInputChar,
+		Level > 0,
+		Level < 3,
+	!.
+		
+	
 
 getEndPoins(Game, Points):-
 	getListElemAt(4, Game, Points).
@@ -524,6 +531,131 @@ putRandomJoker(Board, NewBoard):-
 		once(checkValidPosition(Board, Row, Col)),
 		insertPiece(Board, 0, Row, Col, NewBoard),
 	!.
+	
+%_______________________________________________________________________________________________
+checkAllXJoker(Board, Piece):-
+	checkAllXAuxJoker(Board, Piece, 0, 0).
+	
+checkAllXAuxJoker(Board, Piece, 5, 5):-
+	checkX(Board, Piece, 5, 5).
+	
+checkAllXAuxJoker(Board, Piece, Row, 5):-
+	checkX(Board, Piece, Row, 5),
+	Row1 is Row + 1,
+	Col1 is 0,
+	checkAllXAuxJoker(Board, Piece, Row1, Col1).
+	
+checkAllXAuxJoker(Board, Piece, Row, Col):-
+	checkX(Board, Piece, Row, Col),
+	Col1 is Col + 1,
+	checkAllXAuxJoker(Board, Piece, Row, Col1).	
+	
+	
+	
+	
+checkAllPlusJoker(Board, Piece):-
+	checkAllPlusAuxJoker(Board, Piece, 0, 1).
+	
+checkAllPlusAuxJoker(Board, Piece, 5, 6):-
+	checkPlus(Board, Piece, 5, 6).
+	
+checkAllPlusAuxJoker(Board, Piece, Row, 6):-
+	checkPlus(Board, Piece, Row, 6),
+	Row1 is Row + 1,
+	Col1 is 1,
+	checkAllPlusAuxJoker(Board, Piece, Row1, Col1).
+	
+checkAllPlusAuxJoker(Board, Piece, Row, Col):-
+	checkPlus(Board, Piece, Row, Col),
+	Col1 is Col + 1,
+	checkAllPlusAuxJoker(Board, Piece, Row, Col1).
+	
+	
+	
+
+checkAll5HorJoker(Board, Piece):-
+	checkAll5HorAuxJoker(Board, Piece, 0, 0).
+	
+checkAll5HorAuxJoker(Board, Piece, 7, 3):-
+	check5Hor(Board, Piece, 7, 3).
+	
+checkAll5HorAuxJoker(Board, Piece, Row, 3):-
+	check5Hor(Board, Piece, Row, 3),
+	Row1 is Row + 1,
+	Col1 is 0,
+	checkAll5HorAuxJoker(Board, Piece, Row1, Col1).
+	
+checkAll5HorAuxJoker(Board, Piece, Row, Col):-
+	check5Hor(Board, Piece, Row, Col),
+	Col1 is Col + 1,
+	checkAll5HorAuxJoker(Board, Piece, Row, Col1).
+	
+
+	
+checkAll5VerJoker(Board, Piece):-
+	checkAll5VerAuxJoker(Board, Piece, 0, 0).
+	
+checkAll5VerAuxJoker(Board, Piece, 3, 7):-
+	check5Ver(Board, Piece, 3, 7).
+	
+checkAll5VerAuxJoker(Board, Piece, Row, 7):-
+	check5Ver(Board, Piece, Row, 7, Board),
+	Row1 is Row + 1,
+	Col1 is 0,
+	checkAll5VerAuxJoker(Board, Piece, Row1, Col1).
+	
+checkAll5VerAuxJoker(Board, Piece, Row, Col):-
+	check5Ver(Board, Piece, Row, Col),
+	Col1 is Col + 1,
+	checkAll5VerAuxJoker(Board, Piece, Row, Col1).	
+	
+	
+checkAll5DiaRightJoker(Board, Piece):-
+	checkAll5DiaRightAuxJoker(Board, Piece, 0, 0).
+	
+checkAll5DiaRightAuxJoker(Board, Piece, 3, 3):-
+	check5DiaRight(Board, Piece, 3, 3).
+	
+checkAll5DiaRightAuxJoker(Board, Piece, Row, 3):-
+	check5DiaRight(Board, Piece, Row, 3),
+	Row1 is Row + 1,
+	Col1 is 0,
+	checkAll5DiaRightAuxJoker(Board, Piece, Row1, Col1).
+	
+checkAll5DiaRightAuxJoker(Board, Piece, Row, Col):-
+	check5DiaRight(Board, Piece, Row, Col),
+	Col1 is Col + 1,
+	checkAll5DiaRightAuxJoker(Board, Piece, Row, Col1).
+
+
+
+checkAll5DiaLeftJoker(Board, Piece):-
+	checkAll5DiaLeftAuxJoker(Board, Piece, 0, 4).
+	
+checkAll5DiaLeftAuxJoker(Board, Piece, 4, 7):-
+	check5DiaLeft(Board, Piece, 4, 7).
+	
+checkAll5DiaLeftAuxJoker(Board, Piece, Row, 7):-
+	check5DiaLeft(Board, Piece, Row, 7),
+	Row1 is Row + 1,
+	Col1 is 4,
+	checkAll5DiaLeftAuxJoker(Board, Piece, Row1, Col1).
+	
+checkAll5DiaLeftAuxJoker(Board, Piece, Row, Col):-
+	check5DiaLeft(Board, Piece, Row, Col),
+	Col1 is Col + 1,
+	checkAll5DiaLeftAuxJoker(Board, Piece, Row, Col1).
+	
+	
+checkPatern(Board):-
+	checkAllXJoker(Board, 1), checkAllXJoker(Board, 2),
+	checkAllPlusJoker(Board, 1), checkAllPlusJoker(Board, 2),
+	checkAll5HorJoker(Board, 1), checkAll5HorJoker(Board, 2),
+	checkAll5VerJoker(Board, 1), checkAll5VerJoker(Board, 2),
+	checkAll5DiaRightJoker(Board, 1), checkAll5DiaRightJoker(Board, 2),
+	checkAll5DiaLeftJoker(Board, 1), checkAll5DiaLeftJoker(Board, 2). 
+	
+%%_______________________________________________________________________________________________________________
 
 % MARKERS AND PIECES
 	
@@ -695,6 +827,26 @@ getGamePlayerTurn(Game, Player):-
 
 setGamePlayerTurn(Game, Player, ResGame):-
 	setListElemAtWith(2, Player, Game, ResGame).
+
+getGamePc1Level(Game, Level):-
+	getListElemAt(5, Game, Res),
+	getListElemAt(0, Res, Level).
+
+getGamePc2Level(Game, Level):-
+	getListElemAt(5, Game, Res),
+	getListElemAt(1, Res, Level).
+	
+getGamePcLevel(Game, Level):-
+	getGamePlayerTurn(Game, Player),
+	Player == player1,
+	getGamePc1Level(Game, Level),
+	write(Level), nl.
+	
+getGamePcLevel(Game, Level):-
+	getGamePlayerTurn(Game, Player),
+	Player == player2,
+	getGamePc2Level(Game, Level),
+	write(Level), nl.
 	
 emptyBoard([
 			[[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1],[-1,-1]],
