@@ -521,6 +521,7 @@ putJoker(Board, NewBoard):-
 	repeat,
 		once(readCoords(Row, Col)),
 		once(checkValidPosition(Board, Row, Col)),
+		once(checkPatern(Board, Row, Col)),
 		insertPiece(Board, 0, Row, Col, NewBoard),
 	!.
 
@@ -529,6 +530,7 @@ putRandomJoker(Board, NewBoard):-
 		once(random(0, 8, Row)),
 		once(random(0, 8, Col)),
 		once(checkValidPosition(Board, Row, Col)),
+		once(checkPatern(Board, Row, Col)),
 		insertPiece(Board, 0, Row, Col, NewBoard),
 	!.
 	
@@ -647,13 +649,14 @@ checkAll5DiaLeftAuxJoker(Board, Piece, Row, Col):-
 	checkAll5DiaLeftAuxJoker(Board, Piece, Row, Col1).
 	
 	
-checkPatern(Board):-
-	checkAllXJoker(Board, 1), checkAllXJoker(Board, 2),
-	checkAllPlusJoker(Board, 1), checkAllPlusJoker(Board, 2),
-	checkAll5HorJoker(Board, 1), checkAll5HorJoker(Board, 2),
-	checkAll5VerJoker(Board, 1), checkAll5VerJoker(Board, 2),
-	checkAll5DiaRightJoker(Board, 1), checkAll5DiaRightJoker(Board, 2),
-	checkAll5DiaLeftJoker(Board, 1), checkAll5DiaLeftJoker(Board, 2). 
+checkPatern(Board, Row, Col):-
+	insertPiece(Board, 0, Row, Col, NewBoard),
+	(\+ checkAllXJoker(NewBoard, 1)), (\+ checkAllXJoker(NewBoard, 2)),
+	(\+ checkAllPlusJoker(NewBoard, 1)), (\+ checkAllPlusJoker(NewBoard, 2)),
+	(\+ checkAll5HorJoker(NewBoard, 1)), (\+ checkAll5HorJoker(NewBoard, 2)),
+	(\+ checkAll5VerJoker(NewBoard, 1)), (\+ checkAll5VerJoker(NewBoard, 2)),
+	(\+ checkAll5DiaRightJoker(NewBoard, 1)), (\+ checkAll5DiaRightJoker(NewBoard, 2)),
+	(\+ checkAll5DiaLeftJoker(NewBoard, 1)), (\+ checkAll5DiaLeftJoker(NewBoard, 2)). 
 	
 %%_______________________________________________________________________________________________________________
 
