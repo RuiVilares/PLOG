@@ -1,4 +1,4 @@
-% CONTAINER AUXILIRY FUNCTIONS
+% AUXILIRY FUNCTIONS
 	
 %getMatrixElemAt(Row, Col, Matrix, Result)
 getMatrixElemAt(0, Col, [X|_], Elem):-
@@ -30,30 +30,14 @@ setListElemAtWith(Pos, Elem, [H|L], [H|ResL]):-
 	Pos1 is Pos-1,
 	setListElemAtWith(Pos1, Elem, L, ResL).
 
-%replaceMatrixElemWith(PrevElem, NextElem, CurrentMatrix, ResMatrix)
-replaceMatrixElemWith(_, _, [], []).
-replaceMatrixElemWith(Prev, Next, [Line|RL], [ResLine|ResRL]):-
-	replaceListElemWith(Prev, Next, Line, ResLine),
-	replaceMatrixElemWith(Prev, Next, RL, ResRL).
-
-%replaceListElemWith(PrevElem, NextElem, CurrentList, ResList)
-replaceListElemWith(_, _, [], []).
-replaceListElemWith(Prev, Next, [Prev|L1], [Next|L2]):-
-	replaceListElemWith(Prev, Next, L1, L2).
-replaceListElemWith(Prev, Next, [C|L1], [C|L2]):-
-	C \= Prev,
-	replaceListElemWith(Prev, Next, L1, L2).
-
 
 % INITIALIZE RANDOM SEED
-
 initializeRandom:-
 	now(Usec), Seed is Usec mod 30269,
 	getrand(random(X, Y, Z, _)),
 	setrand(random(Seed, X, Y, Z)), !.
 
 % CLEAN CONSOLE	
-	
 clearConsole:-
 	clearConsole(40), !.
 
@@ -66,16 +50,6 @@ clearConsole(N):-
 
 
 % INPUT FUNCTIONS	
-	
-getChar(Input):-
-	get_char(Input),
-	get_char(_).
-
-getCode(Input):-
-	get_code(TempInput),
-	get_code(_),
-	Input is TempInput - 48.
-
 getInt(Input):-
 	get_code(TempInput),
 	Input is TempInput - 48.
