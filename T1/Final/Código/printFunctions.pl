@@ -1,10 +1,12 @@
 % AUXILIARY PRINT FUNCTIONS
 
+% Print matrix function, only for tests
 printMatrix([]).
 printMatrix([Line | Tail]):-
 	printList(Line), nl,
 	printMatrix(Tail).
 
+% Print list function, only for tests
 printList([]).
 printList([Head | Tail]):-
 	write(Head),
@@ -14,13 +16,13 @@ printList([Head | Tail]):-
 	
 % BOARD PRINT FUNCTIONS
 
-%traduz o atomo para peca de jogo
+%translate code to game piece
 translateCodeToChar(-1, ' ').
 translateCodeToChar(11, '*').
 translateCodeToChar(22, ':').
 translateCodeToChar(X, X).
 
-%imprime as linhas horizontais
+%print horizontal lines
 printHorizontalLine(0).
 printHorizontalLine(NumberOfDashes) :-
 	write('-'),
@@ -32,9 +34,9 @@ horizontalLine(Number) :-
 	write('|'),
 	printHorizontalLine(63),
 	write('|').
-horizontalLine(_). %para a funcao nao falhar
+horizontalLine(_). %to prevent fail
 
-%imprime as linhas verticais
+%print vertical lines
 printBeginning(_) :-
 	write('| ').
 printMiddle(_) :-
@@ -45,15 +47,15 @@ toPrintMiddle(N) :-
 	N > 0,
 	N < 8,
 	printMiddle(_).
-toPrintMiddle(_). %para nao falhar
-writeChar(_, 0). %caso base
+toPrintMiddle(_). %to prevent fail
+writeChar(_, 0). %base case
 writeChar(X, N) :-
 	write(X),
 	N1 is N - 1,
 	writeChar(X, N1).
 
-%imprime o tabuleiro
-%65 tracos horizontais
+%Print Board
+%65 horizontal chars
 printBoard(Board) :-
 	nl, write('      1       2       3       4       5       6       7       8    '), nl,
 	write('  '),
@@ -63,7 +65,7 @@ printBoard(Board) :-
 	printHorizontalLine(65),
 	nl.
 
-%chamada auxiliar de 'printBoard' e que desenha (Board.length div 8) vezes
+%Display (Board.length div 8) times
 printBoardAux([],_).
 printBoardAux([Line|Board], CurrentNumberVertical) :-
 	Block is CurrentNumberVertical + 1,
@@ -72,23 +74,23 @@ printBoardAux([Line|Board], CurrentNumberVertical) :-
 	horizontalLine(Block),
 	printBoardAux(Board, Block).
 
-%imprime todos os blocos de uma linha (horizontal)
+%print every horizontal blocks 
 printBlock(Line, LineNum) :-
 	nl,
 	write('  '),
 	printBeginning(_), % '| '
-	printLine1(Line, 0), %desenha primeira linha do bloco
+	printLine1(Line, 0), %display first block line
 	printEnd(_), nl, % ' |\n'
 	write(LineNum), write(' '),
 	printBeginning(_),
-	printLine2(Line, 0), %desenha segunda linha do bloco
+	printLine2(Line, 0), %display second block line
 	printEnd(_), nl,
 	write('  '),
 	printBeginning(_),
-	printLine3(Line, 0), %desenha terceira linha do bloco
+	printLine3(Line, 0), %display third block line
 	printEnd(_).
 
-%imprime a primeira linha do bloco
+%print first block line
 print1(' ', Tile) :-
 	writeChar(Tile, 5).
 print1(Cross, Tile) :-
@@ -101,7 +103,7 @@ printLine1([Current|Line], N) :-
 	N1 is N + 1,
 	printLine1(Line, N1).
 
-%imprime a segunda linha do bloco
+%print second block line
 print2(' ', Tile) :-
 	writeChar(Tile, 5).
 print2(Cross, Tile) :-
@@ -114,7 +116,7 @@ printLine2([Current|Line], N) :-
 	N1 is N + 1,
 	printLine2(Line, N1).
 
-%imprime a terceira linha do bloco
+%print third block line
 print3(' ', Tile) :-
 	writeChar(Tile, 5).
 print3(Cross, Tile) :-
@@ -127,10 +129,30 @@ printLine3([Current|Line], N) :-
 	N1 is N + 1,
 	printLine3(Line, N1).
 
-%traduz o atomo em peca de jogo
+%convert code in game piece
 convertCode([Cross|Tile], X, Y) :-
 	convertCodeAux(Cross, Tile, X, Y).
 
 convertCodeAux(Cross, [Tile|_], X, Y) :-
 	translateCodeToChar(Cross, X),
 	translateCodeToChar(Tile, Y).
+	
+%print player 1 information
+printTurnInfo(player1, Game):-
+	write('Player 1 info:'), nl,
+	getNumPiecesPlayer1(Game, Pieces),
+	getNumMarkersPlayer1(Game, Markers),
+	getPontuationPlayer1(Game, Pont),
+	write('> Pieces: '), write(Pieces), nl,
+	write('> Markers: '), write(Markers), nl,
+	write('> Pontuation: '), write(Pont), nl.
+
+%print player 2 information
+printTurnInfo(player2, Game):-
+	write('Player 2 info:'), nl,
+	getNumPiecesPlayer2(Game, Pieces),
+	getNumMarkersPlayer2(Game, Markers),
+	getPontuationPlayer2(Game, Pont),
+	write('> Pieces: '), write(Pieces), nl,
+	write('> Markers: '), write(Markers), nl,
+	write('> Pontuation: '), write(Pont), nl.

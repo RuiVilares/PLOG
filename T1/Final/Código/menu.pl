@@ -1,5 +1,6 @@
 % MENUS 
 
+%start menu display
 printStartMenu:-
 	clearConsole,
 	write('*********************************'), nl,
@@ -14,6 +15,7 @@ printStartMenu:-
 	write('*********************************'), nl,
 	write('> '), nl.
 	
+% function to open start menu
 mainMenu:-
 	printStartMenu,
 	getChar(Input),
@@ -25,7 +27,7 @@ mainMenu:-
 		mainMenu
 	).
 	
-
+% play menu display
 printPlayMenu:-
 	clearConsole,
 	write('*********************************'), nl,
@@ -39,7 +41,8 @@ printPlayMenu:-
 	write('*                               *'), nl,
 	write('*********************************'), nl,
 	write('> '), nl.
-	
+
+% function to open play menu	
 playMenu:-
 	printPlayMenu,
 	getChar(Input),
@@ -48,22 +51,25 @@ playMenu:-
 		Input = '2' -> startPlayerVsPc;
 		Input = '3' -> startPcVsPc;
 		Input = '4';
-		gameModeMenu
+		playMenu
 	).
 	
-
+% function to start Player Vs Player game
 startPlayerVsPlayer:-
 	createPlayerVsPlayer(Game),
 	playGame(Game).
 	
+% function to open Player Vs Pc game
 startPlayerVsPc:-
 	createPlayerVsPc(Game),
 	playGame(Game).
 
+% function to open Pc Vs Pc game
 startPcVsPc:-
 	createPcVsPc(Game),
 	playGame(Game).
 	
+% help menu display
 printHelpMenu:-
 	clearConsole,
 	write('Information About How ModX is displayed:'), nl,
@@ -88,6 +94,7 @@ printHelpMenu:-
 	write('\t\t-----------------'), nl,
 	pressEnterToContinue, nl.
 	
+% about menu display
 printAboutMenu:-
 	clearConsole,
 	write('*********************************'), nl,

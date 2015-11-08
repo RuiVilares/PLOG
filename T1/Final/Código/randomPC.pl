@@ -1,5 +1,4 @@
-
-%put pc piece (player 2)
+%PC INSERT PIECE PLAYER1 AND PLAYER2 LEVEL 0
 pcMove(Board, player1, NewBoard):-
 	repeat,
 		once(random(0, 8, Row)),
@@ -16,11 +15,10 @@ pcMove(Board, player2, NewBoard):-
 		insertPiece(Board, 2, Row, Col, NewBoard),
 	!.
 
-	
+%PC INSERT PIECE PLAYER1 AND PLAYER2 SMART ALGORITHM
 pcSmartMoveAlgorithm(Board, Player, NewBoard, Game):-
 	findBestOption(Board, 20, Player, NewBoard, Game, -1).
 	
-
 findBestOption(Board, 0, _, Board, _, _).
 findBestOption(Board, Num, Player, NewBoard, Game, Points):-
 	Num > 0,
@@ -31,7 +29,7 @@ findBestOption(Board, Num, Player, NewBoard, Game, Points):-
 			(checkAll(BoardTemp, 1, BoardChecked));
 	checkAll(BoardTemp, 2, BoardChecked)
 	),
-	fixBoard(BoardChecked, BoardFixed, Game, NewGame),
+	fixBoard(BoardChecked, _, Game, NewGame),
 	(
 	Player == player1 ->
 			(getPontuationPlayer1(NewGame, Pontuation));
@@ -44,7 +42,7 @@ findBestOption(Board, Num, Player, NewBoard, Game, Points):-
 	).	
 
 	
-	
+% PC RANDOM MOVE TURN
 pcRandomMove(Game, NewGame):-
 	getGameBoard(Game, Board), getGamePlayerTurn(Game, Player),
 	clearConsole,
@@ -56,7 +54,7 @@ pcRandomMove(Game, NewGame):-
 	endRandomTurn(Game2, TempGame),
 	changePlayer(TempGame, NewGame), !.
 	
-
+% PC SMART MOVE TURN
 pcSmartMove(Game, NewGame):-
 	getGameBoard(Game, Board), getGamePlayerTurn(Game, Player),
 	clearConsole,
@@ -67,4 +65,5 @@ pcSmartMove(Game, NewGame):-
 	setGameBoard(Game1, NewBoard, Game2),
 	endRandomTurn(Game2, TempGame),
 	changePlayer(TempGame, NewGame), !.
-
+	
+	

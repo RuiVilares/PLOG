@@ -40,9 +40,7 @@ initializeRandom:-
 % CLEAN CONSOLE	
 clearConsole:-
 	clearConsole(40), !.
-
 clearConsole(0).
-
 clearConsole(N):-
 	nl,
 	N1 is N-1,
@@ -53,13 +51,37 @@ clearConsole(N):-
 getInt(Input):-
 	get_code(TempInput),
 	Input is TempInput - 48.
+	
+getChar(Input):-
+	get_char(Input),
+	get_char(_).
 
+% discard input	
 discardInputChar:-
 	get_code(_).
-	
+
+% wait enter key
 pressEnterToContinue:-
 	write('Press ENTER to continue'), nl,
 	waitForEnter, !.
 
 waitForEnter:-
 	get_char(_).
+	
+% insert piece
+insertPiece(Row, Col):-
+	readCoords(Row, Col), nl.
+
+% read coordinates	
+readCoords(Row, Col):-
+	write('Line: '),
+	getInt(SrcRow),
+	
+	discardInputChar,
+	write('Col: '),
+	getInt(SrcCol),
+
+	discardInputChar,
+
+	Row is SrcRow-1,
+	Col is SrcCol-1.

@@ -1,0 +1,17 @@
+\select@language {portuguese}
+\contentsline {section}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o\newline }{4}
+\contentsline {section}{\numberline {2}O Jogo MOD X\newline }{5}
+\contentsline {subsection}{\numberline {2.1}Contextualiza\IeC {\c c}\IeC {\~a}o}{5}
+\contentsline {subsection}{\numberline {2.2}Componentes do jogo}{5}
+\contentsline {subsection}{\numberline {2.3}Objetivo do jogo}{5}
+\contentsline {subsection}{\numberline {2.4}Regras}{5}
+\contentsline {section}{\numberline {3}L\IeC {\'o}gica do Jogo\newline }{7}
+\contentsline {subsection}{\numberline {3.1}Representa\IeC {\c c}\IeC {\~a}o do Estado do Jogo\newline }{7}
+\contentsline {subsection}{\numberline {3.2}Visualiza\IeC {\c c}\IeC {\~a}o do Tabuleiro\newline }{7}
+\contentsline {subsection}{\numberline {3.3}Lista de Jogadas V\IeC {\'a}lidas\newline }{8}
+\contentsline {subsection}{\numberline {3.4}Execu\IeC {\c c}\IeC {\~a}o de Jogadas\newline }{9}
+\contentsline {subsection}{\numberline {3.5}Avalia\IeC {\c c}\IeC {\~a}o do Tabuleiro\newline }{9}
+\contentsline {subsection}{\numberline {3.6}Final do Jogo\newline }{9}
+\contentsline {subsection}{\numberline {3.7}Jogada do Computador\newline }{10}
+\contentsline {section}{\numberline {4}Interface com o Utilizador\newline }{11}
+\contentsline {section}{\numberline {5}Conclus\IeC {\~o}es\newline }{13}

@@ -4,6 +4,7 @@
 :- include('menu.pl').
 :- include('auxiliaryFunctions.pl').
 :- include('printFunctions.pl').
+:- include('jokerFunctions.pl').
 :- include('gameFunctions.pl').
 :- include('randomPC.pl').
 
@@ -12,52 +13,6 @@ modx:-
 	initializeRandom,
 	mainMenu.
 	startPlayerVSPlayer.
-
-	
-	
-% PLAYER 
-player(player1).
-player(player2).
-
-getPlayerName(player1, 'Player 1').
-getPlayerName(player2, 'Player 2').
-
-%PIECES & MARKERS
-piece(p1Piece).
-piece(p2Piece).
-
-marker(p1Marker).
-marker(p2Marker).
-
-
-
-pieceIsOwnedBy(p1Piece, player1).
-pieceIsOwnedBy(p1Marker, player1).
-pieceIsOwnedBy(p2Piece, player2).
-pieceIsOwnedBy(p2Marker, player2).
-
-
-% GAME MODE
-gameMode(playerVSplayer).
-gameMode(playerVSpc).
-gameMode(pcVSpc).
-
-% INPUT FUNCTIONS
-insertPiece(Row, Col):-
-	readCoords(Row, Col), nl.
-
-readCoords(Row, Col):-
-	write('Line: '),
-	getInt(SrcRow),
-	
-	discardInputChar,
-	write('Col: '),
-	getInt(SrcCol),
-
-	discardInputChar,
-
-	Row is SrcRow-1,
-	Col is SrcCol-1.
 	
 	
 % NORMAL GAME	
@@ -91,7 +46,6 @@ playGame(Game):-
 	getPontuationPlayer1(Game, Pont1),
 	getPontuationPlayer2(Game, Pont2),
 	% check which player won
-	getGamePlayerTurn(Game, Player),
 	(
 		(Pont1 > Pont2 ->
 			(write('# Game over. Player 1 won, congratulations!'), nl));
@@ -106,10 +60,10 @@ playGame(Game):-
 	),
 	nl,
 	pressEnterToContinue, !.
-	
+
+% HUMAN TURN 
 humanTurn(Game, ResGame):-
 	getGameBoard(Game, Board), getGamePlayerTurn(Game, Player),
-	
 	clearConsole,
 	printBoard(Board),
 	printTurnInfo(Player, Game), nl, nl,
@@ -118,25 +72,8 @@ humanTurn(Game, ResGame):-
 	setGameBoard(Game1, NewBoard, Game2),
 	endTurn(Game2, TempGame),
 	changePlayer(TempGame, ResGame), !.
-	
-printTurnInfo(player1, Game):-
-	write('Player 1 info:'), nl,
-	getNumPiecesPlayer1(Game, Pieces),
-	getNumMarkersPlayer1(Game, Markers),
-	getPontuationPlayer1(Game, Pont),
-	write('> Pieces: '), write(Pieces), nl,
-	write('> Markers: '), write(Markers), nl,
-	write('> Pontuation: '), write(Pont), nl.
 
-printTurnInfo(player2, Game):-
-	write('Player 2 info:'), nl,
-	getNumPiecesPlayer2(Game, Pieces),
-	getNumMarkersPlayer2(Game, Markers),
-	getPontuationPlayer2(Game, Pont),
-	write('> Pieces: '), write(Pieces), nl,
-	write('> Markers: '), write(Markers), nl,
-	write('> Pontuation: '), write(Pont), nl.
-	
+% CHANGE PLAYER TURN	
 changePlayer(Game, ResGame):-
 	getGamePlayerTurn(Game, Player),
 	(
