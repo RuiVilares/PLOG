@@ -1,4 +1,3 @@
-%Para testes
 :- dynamic horizontal/3, vertical/3.
 
 printHorizontal(0) :-

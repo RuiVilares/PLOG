@@ -1,14 +1,12 @@
 :- include('display.pl').
-:- include('asserts.pl').
 :- include('constraints.pl').
 
 kropki(Size) :-
   Size > 1,
   retractall(horizontal(_,_,_)),
   retractall(vertical(_,_,_)),
-  create(Size, Board),
+  %assertDots(Board),
   %once(printBoard(Board)),
-  assertDots(Board),
   once(printBoard(Board)).
 
 kropki(_) :-

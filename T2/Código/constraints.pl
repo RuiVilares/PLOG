@@ -1,5 +1,10 @@
 :- use_module(library(clpfd)).
 :- use_module(library(lists)).
+:- use_module(library(random)).
+:- use_module(library(between)).
+:- use_module(library(aggregate)).
+:- include('display.pl').
+:- include('asserts.pl').
 
 createBoard(Size, Board) :-
 	createBoardAux(Size, Size, [], Board).
@@ -29,16 +34,30 @@ setDifferent(Board, NewBoard) :-
 	setDifferentRow(Board),
 	setDifferentCol(Board, NewBoard).
 
+deleteIndex([_|L],0,L).
+deleteIndex([H|Rest],Index,[H|NewList]) :-
+	NewIndex is Index - 1,
+	deleteIndex(Rest,NewIndex,NewList).
+
+sel(Vars,Selected,Rest) :- 
+	length(Vars,N1),
+	N is N1 - 1,
+	random(0,N,RandomIndex),
+	nth0(RandomIndex,Vars,Selected),
+	var(Selected),
+	deleteIndex(Vars,RandomIndex,Rest).
+
 label([]).
 label([Row|Board]) :-
-	labeling([], Row),
+	labeling([variable(sel)], Row),
 	label(Board).
 
 create(Size, Board) :-
 	createBoard(Size, Board),
 	setDomain(Size, Board),
 	setDifferent(Board, NewBoard),
-	label(NewBoard).
+	label(NewBoard),
+	printBoard(Board).
 
 solve(Board, SolvedBoard) :-
 	length(Board, Size),

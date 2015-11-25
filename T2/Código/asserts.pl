@@ -1,5 +1,6 @@
 horizontal(-1,-1,_):-fail.
 vertical(-1,-1,_):-fail.
+
 %getMatrixElemAt(Row, Col, Matrix, Result)
 getMatrixElemAt(_, _, [], -3).
 getMatrixElemAt(1, Col, [X|_], Elem):-
