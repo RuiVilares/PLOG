@@ -28,11 +28,23 @@ printBoardAux([Line|Board], CurrentLine) :-
 	CurrentLine1 is CurrentLine + 1,
 	printBoardAux(Board, CurrentLine1).
 
+printElem(Elem) :-
+	number(Elem),
+	Elem < 10,
+	write(' '),
+	write(Elem).
+
+printElem(Elem) :-
+	number(Elem),
+	write(Elem).
+
+printElem(_) :-
+	write('  ').
+
 printLineNumbers([], _, _) :-
 	nl.
 printLineNumbers([Elem|Line], LineNumber, ColNumber) :-
-	write(' '),
-	write(Elem),
+	printElem(Elem),
 	write(' '),
 	printDotHorizontal(LineNumber, ColNumber),
 	ColNumber1 is ColNumber + 1,

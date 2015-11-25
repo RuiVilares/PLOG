@@ -27,8 +27,9 @@ setDifferentRow([Row|Board]) :-
 	setDifferentRow(Board).
 
 setDifferentCol(Board, NewBoard) :-
-	transpose(Board, NewBoard),
-	setDifferentRow(NewBoard).
+	transpose(Board, NewBoard1),
+	setDifferentRow(NewBoard1),
+	transpose(NewBoard1, NewBoard).
 
 setDifferent(Board, NewBoard) :-
 	setDifferentRow(Board),
@@ -47,20 +48,70 @@ sel(Vars,Selected,Rest) :-
 	var(Selected),
 	deleteIndex(Vars,RandomIndex,Rest).
 
-label([]).
-label([Row|Board]) :-
+labelCreate([]).
+labelCreate([Row|Board]) :-
 	labeling([variable(sel)], Row),
-	label(Board).
+	labelCreate(Board).
 
 create(Size, Board) :-
 	createBoard(Size, Board),
 	setDomain(Size, Board),
 	setDifferent(Board, NewBoard),
-	label(NewBoard).
+	labelCreate(NewBoard).
 
-solve(Size, Board) :-
+labelSolve([]).
+labelSolve([Row|Board]) :-
+	labeling([], Row),
+	labelSolve(Board).
+
+setAsserts(_, Size, Size, Size).
+setAsserts(Board, Size, Col, Size) :-
+	Col1 is Col + 1,
+	getMatrixElemAt(Size, Col, Board, Elem),
+	getMatrixElemAt(Size, Col1, Board, ElemRight),
+	dotHor(Elem, ElemRight, Size, Col),
+	setAsserts(Board, Size, Col1, Size).
+
+setAsserts(Board, Row, Size, Size) :-
+	Row1 is Row + 1,
+	getMatrixElemAt(Row, Size, Board, Elem),
+	getMatrixElemAt(Row1, Size, Board, ElemDown),
+	dotVer(Elem, ElemDown, Row, Size),
+	setAsserts(Board, Row1, 1, Size).
+
+setAsserts(Board, Row, Col, Size) :-
+	Col1 is Col + 1,
+	Row1 is Row + 1,
+	getMatrixElemAt(Row, Col, Board, Elem),
+	getMatrixElemAt(Row, Col1, Board, ElemRight),
+	getMatrixElemAt(Row1, Col, Board, ElemDown),
+	dotHor(Elem, ElemRight, Row, Col),
+	dotVer(Elem, ElemDown, Row, Col),
+	setAsserts(Board, Row, Col1, Size).
+
+dotHor(Elem, ElemRight, Row, Col):-
+	horizontal(Row, Col, black),
+	Elem #= ElemRight * 2 #\/ ElemRight #= Elem * 2.
+
+dotHor(Elem, ElemRight, Row, Col):-
+	horizontal(Row, Col, white),
+	Elem #= ElemRight + 1 #\/ Elem #= ElemRight - 1.
+
+dotHor(_, _, _, _).
+
+dotVer(Elem, ElemDown, Row, Col):-
+	vertical(Row, Col, black),
+	Elem #= ElemDown * 2 #\/ ElemDown #= Elem * 2.
+
+dotVer(Elem, ElemDown, Row, Col):-
+	vertical(Row, Col, white),
+	Elem #= ElemDown + 1 #\/ Elem #= ElemDown - 1.
+
+dotVer(_, _, _, _).
+
+solveUser(Size, Board) :-
 	length(Board, Size),
-	setDomain(Size, SolvedBoardTemp),
-	setDifferent(SolvedBoardTemp, SolvedBoard),
-
-	label(SolvedBoard).
+	setDomain(Size, Board),
+	setDifferent(Board, SolvedBoard),
+	setAsserts(SolvedBoard, 1, 1, Size),
+	labelSolve(SolvedBoard).
