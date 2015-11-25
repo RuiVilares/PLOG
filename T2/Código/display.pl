@@ -1,8 +1,8 @@
 %Para testes
-vertical(1,1,branco).
-vertical(1,2,preto).
-horizontal(1,1,preto).
-horizontal(2,1,branco).
+vertical(1,1,white).
+vertical(1,2,black).
+horizontal(1,1,black).
+horizontal(2,1,white).
 board([[1,2],[2,1]]).
 
 
@@ -54,19 +54,19 @@ printLine([_|Line], LineNumber, ColNumber) :-
 	printLine(Line, LineNumber, ColNumber1).
 
 printDotVertical(LineNumber, ColNumber) :-
-	vertical(LineNumber, ColNumber, branco),
+	vertical(LineNumber, ColNumber, white),
 	write('º').
 printDotVertical(LineNumber, ColNumber) :-
-	vertical(LineNumber, ColNumber, preto),
+	vertical(LineNumber, ColNumber, black),
 	write('.').
 printDotVertical(_, _) :-
 	write('-').
 
 printDotHorizontal(LineNumber, ColNumber) :-
-	horizontal(LineNumber, ColNumber, branco),
+	horizontal(LineNumber, ColNumber, white),
 	write('º').
 printDotHorizontal(LineNumber, ColNumber) :-
-	horizontal(LineNumber, ColNumber, preto),
+	horizontal(LineNumber, ColNumber, black),
 	write('.').
 printDotHorizontal(_, _) :-
 	write('|').
