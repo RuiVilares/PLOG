@@ -1,10 +1,6 @@
 %Para testes
-vertical(1,1,white).
-vertical(1,2,black).
-horizontal(1,1,black).
-horizontal(2,1,white).
-board([[1,2],[2,1]]).
-
+horizontal(-1,-1,_):-fail.
+vertical(-1,-1,_):-fail.
 
 printHorizontal(0) :-
 	write('|'),

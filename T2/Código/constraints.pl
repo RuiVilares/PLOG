@@ -39,3 +39,10 @@ create(Size, Board) :-
 	setDomain(Size, Board),
 	setDifferent(Board, NewBoard),
 	label(NewBoard).
+
+solve(Board, SolvedBoard) :-
+	length(Board, Size),
+	setDomain(Size, SolvedBoardTemp),
+	setDifferent(SolvedBoardTemp, SolvedBoard),
+	
+	label(SolvedBoard).
