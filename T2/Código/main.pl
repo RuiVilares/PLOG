@@ -5,8 +5,9 @@ kropki(Size) :-
   Size > 1,
   retractall(horizontal(_,_,_)),
   retractall(vertical(_,_,_)),
-  %assertDots(Board),
-  %once(printBoard(Board)),
+  create(Size, Board),
+  once(printBoard(Board)),
+  assertDots(Board),
   once(printBoard(Board)).
 
 kropki(_) :-

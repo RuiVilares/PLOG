@@ -39,7 +39,7 @@ deleteIndex([H|Rest],Index,[H|NewList]) :-
 	NewIndex is Index - 1,
 	deleteIndex(Rest,NewIndex,NewList).
 
-sel(Vars,Selected,Rest) :- 
+sel(Vars,Selected,Rest) :-
 	length(Vars,N1),
 	N is N1 - 1,
 	random(0,N,RandomIndex),
@@ -56,12 +56,11 @@ create(Size, Board) :-
 	createBoard(Size, Board),
 	setDomain(Size, Board),
 	setDifferent(Board, NewBoard),
-	label(NewBoard),
-	printBoard(Board).
+	label(NewBoard).
 
-solve(Board, SolvedBoard) :-
+solve(Size, Board) :-
 	length(Board, Size),
 	setDomain(Size, SolvedBoardTemp),
 	setDifferent(SolvedBoardTemp, SolvedBoard),
-	
+
 	label(SolvedBoard).
