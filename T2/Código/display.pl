@@ -1,4 +1,3 @@
-%Para testes
 horizontal(-1,-1,_):-fail.
 vertical(-1,-1,_):-fail.
 
