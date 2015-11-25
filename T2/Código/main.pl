@@ -1,13 +1,16 @@
+:- include('display.pl').
 :- include('asserts.pl').
 :- include('constraints.pl').
-:- include('display.pl').
 
 kropki(Size) :-
   Size > 1,
+  retractall(horizontal(_,_,_)),
+  retractall(vertical(_,_,_)),
   create(Size, Board),
-  printBoard(Board),
+  %once(printBoard(Board)),
   assertDots(Board),
-  printBoard(Board).
+  once(printBoard(Board)).
 
 kropki(_) :-
-  write('Enter a value bigger than 1.'), nl.
+  write('Enter a value bigger than 1.'), nl,
+  fail.

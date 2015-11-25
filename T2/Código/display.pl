@@ -1,6 +1,5 @@
 %Para testes
-horizontal(-1,-1,_):-fail.
-vertical(-1,-1,_):-fail.
+:- dynamic horizontal/3, vertical/3.
 
 printHorizontal(0) :-
 	write('|'),
@@ -26,7 +25,7 @@ printBoardAux([Line|Board], CurrentLine) :-
 	write('|'),
 	printLineNumbers(Line, CurrentLine, 1),
 	write('|'),
-	printLine(Line, 1, CurrentLine),
+	printLine(Line, CurrentLine, 1),
 	CurrentLine1 is CurrentLine + 1,
 	printBoardAux(Board, CurrentLine1).
 
@@ -51,7 +50,7 @@ printLine([_|Line], LineNumber, ColNumber) :-
 
 printDotVertical(LineNumber, ColNumber) :-
 	vertical(LineNumber, ColNumber, white),
-	write('º').
+	write('o').
 printDotVertical(LineNumber, ColNumber) :-
 	vertical(LineNumber, ColNumber, black),
 	write('.').
@@ -60,7 +59,7 @@ printDotVertical(_, _) :-
 
 printDotHorizontal(LineNumber, ColNumber) :-
 	horizontal(LineNumber, ColNumber, white),
-	write('º').
+	write('o').
 printDotHorizontal(LineNumber, ColNumber) :-
 	horizontal(LineNumber, ColNumber, black),
 	write('.').
