@@ -1,3 +1,4 @@
+%declaracao dos predicados dinamicos
 :- dynamic horizontal/3, vertical/3.
 
 printHorizontal(0) :-
