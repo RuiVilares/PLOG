@@ -22,8 +22,15 @@ kropki(Size) :-
 	%once(printBoard(Board)),
 	createBoard(Size, BoardToSolve),
 	once(printBoard(BoardToSolve)),
+	statistics(runtime, [T0|_]),
 	solveUser(Size, BoardToSolve),
-	once(printBoard(BoardToSolve)).
+	statistics(runtime, [T1|_]),
+	once(printBoard(BoardToSolve)),
+	nl,
+	fd_statistics,
+	nl,
+	T is T1 - T0,
+	format('Solving the board took ~3d sec.~n', [T]).
 
 %o tamanho minimo do tabuleiro deve ser maior que 1
 %o predicao falha intencionalmente

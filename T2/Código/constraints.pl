@@ -80,7 +80,7 @@ create(Size, Board) :-
 %faz o labeling para resolver o tabuleiro com as restricoes anteriormente criadas
 labelSolve([]).
 labelSolve([Row|Board]) :-
-	labeling([], Row),
+	labeling([ffc], Row),
 	labelSolve(Board).
 
 %cria as restricoes dos pontos brancos e pretos
