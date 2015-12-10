@@ -78,10 +78,9 @@ create(Size, Board) :-
 	labelCreate(NewBoard).
 
 %faz o labeling para resolver o tabuleiro com as restricoes anteriormente criadas
-labelSolve([]).
-labelSolve([Row|Board]) :-
-	labeling([ffc], Row),
-	labelSolve(Board).
+labelSolve(Board) :-
+	append(Board, B),
+	labeling([ffc], B).
 
 %cria as restricoes dos pontos brancos e pretos
 setAsserts(_, Size, Size, Size).
