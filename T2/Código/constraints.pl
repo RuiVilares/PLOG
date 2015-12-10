@@ -65,10 +65,9 @@ sel(Vars,Selected,Rest) :-
 
 %faz o labeling de cada linha
 %escolhe o proximo elemento de forma aleatoria
-labelCreate([]).
-labelCreate([Row|Board]) :-
-	labeling([variable(sel)], Row),
-	labelCreate(Board).
+labelCreate(Board) :-
+	append(Board, B),
+	labeling([variable(sel)], B).
 
 %cria um tabuleiro de tamanho Size para ser resolvido
 create(Size, Board) :-
