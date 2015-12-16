@@ -65,7 +65,7 @@ printDotVertical(LineNumber, ColNumber) :-
 	write('o').
 printDotVertical(LineNumber, ColNumber) :-
 	vertical(LineNumber, ColNumber, black),
-	write('.').
+	write('*').
 printDotVertical(_, _) :-
 	write('-').
 
@@ -74,6 +74,6 @@ printDotHorizontal(LineNumber, ColNumber) :-
 	write('o').
 printDotHorizontal(LineNumber, ColNumber) :-
 	horizontal(LineNumber, ColNumber, black),
-	write('.').
+	write('*').
 printDotHorizontal(_, _) :-
 	write('|').
